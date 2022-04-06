@@ -10,6 +10,8 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
+  TextEditingController _datecontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,9 +89,69 @@ class _DetailsState extends State<Details> {
                     title: "Name",
                     hint: "Enter your name",
                   ),
-                  _LocalTExtField(
-                    title: "Date of Birth",
-                    hint: "DD/MM/YY",
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: getwidth(context, 15),
+                        bottom: getheight(context, 24)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Date of Birth",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          height: getheight(context, 54),
+                          width: getwidth(context, 343),
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  controller: _datecontroller,
+                                  cursorColor: Colors.white,
+                                  style: TextStyle(color: Color(0xffADADAD)),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "DD/MM/YY",
+                                    hintStyle:
+                                        TextStyle(color: Color(0xffADADAD)),
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                  onPressed: () {
+                                    showDatePicker(
+                                            context: context,
+                                            initialDate: DateTime.now(),
+                                            firstDate: DateTime(1950),
+                                            lastDate: DateTime(2150))
+                                        .then((value) {
+                                      setState(() {
+                                        _datecontroller.text =
+                                            "${value.toString().substring(8, 10)}/${value.toString().substring(5, 7)}/${value.toString().substring(0, 4)}";
+                                      });
+                                    });
+                                  },
+                                  icon: Icon(
+                                    Icons.calendar_today_outlined,
+                                    color: Colors.white,
+                                  ))
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                   _LocalTExtField(
                     title: "Birth Time",

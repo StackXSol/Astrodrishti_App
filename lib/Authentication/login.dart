@@ -10,6 +10,8 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+  bool _obscure = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,9 +89,61 @@ class _LogInState extends State<LogIn> {
                     title: "Username",
                     hint: "Email or Phone Number",
                   ),
-                  _LocalTExtField(
-                    title: "Password",
-                    hint: "Enter password here",
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: getwidth(context, 15),
+                        bottom: getheight(context, 24)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Password",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          height: getheight(context, 58),
+                          width: getwidth(context, 343),
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  obscureText: _obscure,
+                                  cursorColor: Colors.white,
+                                  style: TextStyle(color: Color(0xffADADAD)),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "Enter password here",
+                                    hintStyle:
+                                        TextStyle(color: Color(0xffADADAD)),
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _obscure = !_obscure;
+                                    });
+                                  },
+                                  icon: Icon(
+                                    Icons.remove_red_eye_sharp,
+                                    color: Colors.white,
+                                  ))
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: getheight(context, 35),
