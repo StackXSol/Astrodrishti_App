@@ -11,6 +11,7 @@ class Details extends StatefulWidget {
 
 class _DetailsState extends State<Details> {
   TextEditingController _datecontroller = TextEditingController();
+  TextEditingController _timecontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -153,9 +154,68 @@ class _DetailsState extends State<Details> {
                       ],
                     ),
                   ),
-                  _LocalTExtField(
-                    title: "Birth Time",
-                    hint: "HH:MM",
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: getwidth(context, 15),
+                        bottom: getheight(context, 24)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Birth Time",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          height: getheight(context, 54),
+                          width: getwidth(context, 343),
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  controller: _timecontroller,
+                                  cursorColor: Colors.white,
+                                  style: TextStyle(color: Color(0xffADADAD)),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "HH:MM",
+                                    hintStyle:
+                                        TextStyle(color: Color(0xffADADAD)),
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                  onPressed: () {
+                                    showTimePicker(
+                                            context: context,
+                                            initialTime: TimeOfDay.now())
+                                        .then((value) {
+                                      setState(() {
+                                        print(value);
+                                        _timecontroller.text =
+                                            "${value!.toString().substring(10, 12)}:${value.toString().substring(13, 15)}";
+                                      });
+                                    });
+                                  },
+                                  icon: Icon(
+                                    Icons.time_to_leave,
+                                    color: Colors.white,
+                                  ))
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                   _LocalTExtField(
                     title: "Birth Place",

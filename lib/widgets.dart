@@ -12,6 +12,10 @@ double getwidth(context, value) {
   return MediaQuery.of(context).size.width * (value / 375);
 }
 
+final Shader blue_text_grad = LinearGradient(
+  colors: <Color>[Color(0xff21D4FD), Color(0xff6D80FE)],
+).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
+
 LinearGradient blue_grade =
     LinearGradient(colors: [Color(0xff21D4FD), Color(0xff6D80FE)]);
 

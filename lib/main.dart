@@ -2,6 +2,8 @@ import 'package:astrodrishti/Authentication/details.dart';
 import 'package:astrodrishti/Authentication/login.dart';
 import 'package:astrodrishti/Authentication/otp.dart';
 import 'package:astrodrishti/Authentication/signup.dart';
+import 'package:astrodrishti/MainScreens/BottomNavBar.dart';
+import 'package:astrodrishti/MainScreens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,8 +26,9 @@ class MyApp extends StatelessWidget {
         '/signup': (context) => const SignUp(),
         '/otp': (context) => OtpAuth(),
         '/details': (context) => Details(),
+        '/home': (context) => BottomBar(),
       },
-      initialRoute: '/login',
+      initialRoute: '/home',
     );
   }
 }
