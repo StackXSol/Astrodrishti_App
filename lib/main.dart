@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => Profile(),
         '/saved': (context) => Saved(),
       },
-      initialRoute: '/navbar',
+      initialRoute: '/login',
     );
   }
 }
