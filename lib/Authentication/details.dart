@@ -34,7 +34,7 @@ class _DetailsState extends State<Details> {
                     "Welcome to\nAstrodrishti",
                     style: TextStyle(
                         color: Colors.white,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
                         fontSize: 36),
                   ),
                   SizedBox(

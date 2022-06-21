@@ -28,8 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    left: getwidth(context, 16),
-                    bottom: getheight(context, 21)),
+                    left: getwidth(context, 8), bottom: getheight(context, 21)),
                 child: IconButton(
                   onPressed: () {},
                   icon: Icon(

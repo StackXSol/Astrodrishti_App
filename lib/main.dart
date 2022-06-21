@@ -8,6 +8,7 @@ import 'package:astrodrishti/Screens/order_history.dart';
 import 'package:astrodrishti/Screens/profile.dart';
 import 'package:flutter/material.dart';
 
+import 'MainScreens/BottomNavBar.dart';
 import 'Screens/saved.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Astrodrishti',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         textTheme: TextTheme(bodyText2: TextStyle(color: Colors.white)),
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         '/saved': (context) => Saved(),
         '/analysis': (context) => Analysis(),
       },
-      initialRoute: '/analysis',
+      initialRoute: '/navbar',
     );
   }
 }
