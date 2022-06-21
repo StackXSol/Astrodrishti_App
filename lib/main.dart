@@ -2,7 +2,7 @@ import 'package:astrodrishti/Authentication/details.dart';
 import 'package:astrodrishti/Authentication/login.dart';
 import 'package:astrodrishti/Authentication/otp.dart';
 import 'package:astrodrishti/Authentication/signup.dart';
-import 'package:astrodrishti/MainScreens/BottomNavBar.dart';
+import 'package:astrodrishti/Screens/analysis.dart';
 import 'package:astrodrishti/Screens/notifications.dart';
 import 'package:astrodrishti/Screens/order_history.dart';
 import 'package:astrodrishti/Screens/profile.dart';
@@ -36,8 +36,9 @@ class MyApp extends StatelessWidget {
         '/notifications': (context) => Notifications(),
         '/profile': (context) => Profile(),
         '/saved': (context) => Saved(),
+        '/analysis': (context) => Analysis(),
       },
-      initialRoute: '/login',
+      initialRoute: '/analysis',
     );
   }
 }

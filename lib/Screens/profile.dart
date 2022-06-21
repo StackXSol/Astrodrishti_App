@@ -271,7 +271,119 @@ class Profile extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    // report issue
+                    showModalBottomSheet(
+                        backgroundColor: Color(0xFF161A4D),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Container(
+                            height: getheight(context, 350),
+                            child: Column(
+                              children: <Widget>[
+                                SizedBox(
+                                  height: getheight(context, 24),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 16),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'Report Issue',
+                                        style: TextStyle(fontSize: 18),
+                                      ),
+                                      Spacer(),
+                                      Container(
+                                          height: getheight(context, 32),
+                                          width: getheight(context, 32),
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              color: Color(0xFF010642)),
+                                          child: Icon(
+                                            Icons.cancel_outlined,
+                                            color: Colors.white,
+                                            size: getheight(context, 32),
+                                          ))
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: getheight(context, 15),
+                                ),
+                                Divider(
+                                  height: 3,
+                                  color: Color(0xFF010642),
+                                ),
+                                SizedBox(
+                                  height: getheight(context, 24),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 16),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text("Issue"),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.all(3),
+                                        height: getheight(
+                                            context, getheight(context, 128)),
+                                        width: getwidth(
+                                            context, getwidth(context, 343)),
+                                        decoration: BoxDecoration(
+                                            border:
+                                                Border.all(color: Colors.white),
+                                            color: Color(0xFF161A4D),
+                                            borderRadius:
+                                                BorderRadius.circular(8)),
+                                        child: TextField(
+                                          expands: true,
+                                          maxLines: null,
+                                          decoration: InputDecoration(
+                                              focusedBorder: InputBorder.none,
+                                              enabledBorder: InputBorder.none,
+                                              errorBorder: InputBorder.none,
+                                              disabledBorder: InputBorder.none,
+                                              hintText:
+                                                  "Type you question here..."),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    // submit bug
+                                  },
+                                  child: Container(
+                                    height: getheight(context, 50),
+                                    width: getwidth(context, 343),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      gradient: LinearGradient(
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                        colors: [
+                                          Color(0xff21D4FD).withOpacity(0.7),
+                                          Color(0xff6D80FE).withOpacity(0.217)
+                                        ],
+                                      ),
+                                    ),
+                                    child: Center(child: Text("Submit")),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        });
                   },
                   child: Center(
                     child: Column(
