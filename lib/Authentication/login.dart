@@ -59,126 +59,128 @@ class _LogInState extends State<LogIn> {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(24),
                       topLeft: Radius.circular(24))),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: getheight(context, 24),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: getwidth(context, 18)),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: getheight(context, 24),
                     ),
-                  ),
-                  SizedBox(
-                    height: getheight(context, 15),
-                  ),
-                  Divider(
-                    color: Color(0xff1F2463),
-                    thickness: 2,
-                  ),
-                  SizedBox(
-                    height: getheight(context, 23),
-                  ),
-                  _LocalTExtField(
-                    title: "Username",
-                    hint: "Email or Phone Number",
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: getwidth(context, 15),
-                        bottom: getheight(context, 24)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Password",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          height: getheight(context, 58),
-                          width: getwidth(context, 343),
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              border: Border.all(color: Colors.white),
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: TextField(
-                                  obscureText: _obscure,
-                                  cursorColor: Colors.white,
-                                  style: TextStyle(color: Color(0xffADADAD)),
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Enter password here",
-                                    hintStyle:
-                                        TextStyle(color: Color(0xffADADAD)),
-                                  ),
-                                ),
-                              ),
-                              IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      _obscure = !_obscure;
-                                    });
-                                  },
-                                  icon: Icon(
-                                    Icons.remove_red_eye_sharp,
-                                    color: Colors.white,
-                                  ))
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: getheight(context, 35),
-                  ),
-                  BlueButton(
-                    title: "Log In",
-                  ),
-                  SizedBox(
-                    height: getheight(context, 35),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Don’t have an account?  ",
+                    Padding(
+                      padding: EdgeInsets.only(left: getwidth(context, 18)),
+                      child: Text(
+                        "Login",
                         style: TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 15),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, "/signup");
-                        },
-                        child: Text(
-                          "Sign Up",
+                    ),
+                    SizedBox(
+                      height: getheight(context, 15),
+                    ),
+                    Divider(
+                      color: Color(0xff1F2463),
+                      thickness: 2,
+                    ),
+                    SizedBox(
+                      height: getheight(context, 23),
+                    ),
+                    _LocalTExtField(
+                      title: "Username",
+                      hint: "Email or Phone Number",
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: getwidth(context, 15),
+                          bottom: getheight(context, 24)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Password",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            height: getheight(context, 58),
+                            width: getwidth(context, 343),
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                border: Border.all(color: Colors.white),
+                                borderRadius: BorderRadius.circular(8)),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: TextField(
+                                    obscureText: _obscure,
+                                    cursorColor: Colors.white,
+                                    style: TextStyle(color: Color(0xffADADAD)),
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText: "Enter password here",
+                                      hintStyle:
+                                          TextStyle(color: Color(0xffADADAD)),
+                                    ),
+                                  ),
+                                ),
+                                IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        _obscure = !_obscure;
+                                      });
+                                    },
+                                    icon: Icon(
+                                      Icons.remove_red_eye_sharp,
+                                      color: Colors.white,
+                                    ))
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: getheight(context, 35),
+                    ),
+                    BlueButton(
+                      title: "Log In",
+                    ),
+                    SizedBox(
+                      height: getheight(context, 35),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Don’t have an account?  ",
                           style: TextStyle(
-                              color: Color(0xff21D4FD),
+                              color: Colors.white,
                               fontWeight: FontWeight.w700,
                               fontSize: 15),
                         ),
-                      ),
-                    ],
-                  )
-                ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, "/signup");
+                          },
+                          child: Text(
+                            "Sign Up",
+                            style: TextStyle(
+                                color: Color(0xff21D4FD),
+                                fontWeight: FontWeight.w700,
+                                fontSize: 15),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),

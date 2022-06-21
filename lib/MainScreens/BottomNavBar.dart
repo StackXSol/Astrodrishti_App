@@ -17,7 +17,66 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: _BlueButton(title: "Ask Question"),
+      floatingActionButton: GestureDetector(
+          onTap: () {
+            showModalBottomSheet<void>(
+              backgroundColor: Colors.transparent,
+              context: context,
+              builder: (BuildContext context) {
+                return Container(
+                  padding: EdgeInsets.all(18),
+                  decoration: BoxDecoration(
+                      color: Color(0xff161A4D),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(15),
+                          topRight: Radius.circular(15))),
+                  height: getheight(context, 472),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Row(
+                          children: [
+                            Text(
+                              "Ask Your Question",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Spacer(),
+                            IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: Icon(
+                                  Icons.cancel,
+                                  color: Colors.white,
+                                ))
+                          ],
+                        ),
+                        Divider(
+                          color: Color(0xff1F2463),
+                        ),
+                        SizedBox(
+                          height: getheight(context, 22),
+                        ),
+                        Row(
+                          children: [Text("Question"), Spacer(), Text("0/100")],
+                        ),
+                        SizedBox(
+                          height: getheight(context, 8),
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              hintText: "Type your qustion here..."),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+          child: _BlueButton(title: "Ask Question")),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
       backgroundColor: Colors.transparent,

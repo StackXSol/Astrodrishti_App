@@ -63,85 +63,87 @@ class _OtpAuthState extends State<OtpAuth> {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(24),
                       topLeft: Radius.circular(24))),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: getheight(context, 24),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: getwidth(context, 18)),
-                    child: Text(
-                      "Enter code sent to your number",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: getheight(context, 24),
                     ),
-                  ),
-                  SizedBox(
-                    height: getheight(context, 15),
-                  ),
-                  Divider(
-                    color: Color(0xff1F2463),
-                    thickness: 2,
-                  ),
-                  SizedBox(
-                    height: getheight(context, 23),
-                  ),
-                  OTPTextField(
-                    length: 6,
-                    width: MediaQuery.of(context).size.width,
-                    fieldWidth: 45,
-                    style: TextStyle(fontSize: 17, color: Colors.white),
-                    textFieldAlignment: MainAxisAlignment.spaceAround,
-                    fieldStyle: FieldStyle.box,
-                    otpFieldStyle: OtpFieldStyle(
-                        enabledBorderColor: Colors.white,
-                        borderColor: Colors.white),
-                    onCompleted: (pin) {
-                      print("Completed: " + pin);
-                    },
-                  ),
-                  SizedBox(
-                    height: getheight(context, 35),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, '/details');
-                    },
-                    child: BlueButton(
-                      title: "Next",
-                    ),
-                  ),
-                  SizedBox(
-                    height: getheight(context, 35),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Resent OTP in  ",
+                    Padding(
+                      padding: EdgeInsets.only(left: getwidth(context, 18)),
+                      child: Text(
+                        "Enter code sent to your number",
                         style: TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 15),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, "/signup");
-                        },
-                        child: Text(
-                          "1:12 min",
+                    ),
+                    SizedBox(
+                      height: getheight(context, 15),
+                    ),
+                    Divider(
+                      color: Color(0xff1F2463),
+                      thickness: 2,
+                    ),
+                    SizedBox(
+                      height: getheight(context, 23),
+                    ),
+                    OTPTextField(
+                      length: 6,
+                      width: MediaQuery.of(context).size.width,
+                      fieldWidth: 45,
+                      style: TextStyle(fontSize: 17, color: Colors.white),
+                      textFieldAlignment: MainAxisAlignment.spaceAround,
+                      fieldStyle: FieldStyle.box,
+                      otpFieldStyle: OtpFieldStyle(
+                          enabledBorderColor: Colors.white,
+                          borderColor: Colors.white),
+                      onCompleted: (pin) {
+                        print("Completed: " + pin);
+                      },
+                    ),
+                    SizedBox(
+                      height: getheight(context, 35),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, '/details');
+                      },
+                      child: BlueButton(
+                        title: "Next",
+                      ),
+                    ),
+                    SizedBox(
+                      height: getheight(context, 35),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Resent OTP in  ",
                           style: TextStyle(
-                              color: Color(0xff21D4FD),
+                              color: Colors.white,
                               fontWeight: FontWeight.w700,
                               fontSize: 15),
                         ),
-                      ),
-                    ],
-                  )
-                ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, "/signup");
+                          },
+                          child: Text(
+                            "1:12 min",
+                            style: TextStyle(
+                                color: Color(0xff21D4FD),
+                                fontWeight: FontWeight.w700,
+                                fontSize: 15),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),
