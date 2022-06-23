@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Astrodrishti',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         textTheme: TextTheme(bodyText2: TextStyle(color: Colors.white)),
@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LogIn(),
         '/signup': (context) => const SignUp(),
         '/otp': (context) => OtpAuth(),
+        '/navbar': (context) => BottomBar(),
         '/details': (context) => Details(),
         '/orders': (context) => OrderHistory(),
         '/notifications': (context) => Notifications(),
