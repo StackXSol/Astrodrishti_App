@@ -183,9 +183,7 @@ class Profile extends StatelessWidget {
             ),
             SizedBox(height: getheight(context, 25)),
             GestureDetector(
-              onTap: () => {
-                //birth details
-              },
+              onTap: () => {Navigator.pushNamed(context, '/orders')},
               child: Row(
                 children: [
                   SizedBox(width: 15),
@@ -211,9 +209,7 @@ class Profile extends StatelessWidget {
             ),
             SizedBox(height: getheight(context, 25)),
             GestureDetector(
-              onTap: () => {
-                //Orders details
-              },
+              onTap: () => {Navigator.pushNamed(context, '/saved')},
               child: Row(
                 children: [
                   SizedBox(width: 15),
@@ -294,18 +290,23 @@ class Profile extends StatelessWidget {
                                         style: TextStyle(fontSize: 18),
                                       ),
                                       Spacer(),
-                                      Container(
-                                          height: getheight(context, 32),
-                                          width: getheight(context, 32),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                              color: Color(0xFF010642)),
-                                          child: Icon(
-                                            Icons.cancel_outlined,
-                                            color: Colors.white,
-                                            size: getheight(context, 32),
-                                          ))
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Container(
+                                            height: getheight(context, 32),
+                                            width: getheight(context, 32),
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(50),
+                                                color: Color(0xFF010642)),
+                                            child: Icon(
+                                              Icons.cancel_outlined,
+                                              color: Colors.white,
+                                              size: getheight(context, 32),
+                                            )),
+                                      )
                                     ],
                                   ),
                                 ),
@@ -345,12 +346,17 @@ class Profile extends StatelessWidget {
                                           expands: true,
                                           maxLines: null,
                                           decoration: InputDecoration(
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 10),
                                               focusedBorder: InputBorder.none,
                                               enabledBorder: InputBorder.none,
                                               errorBorder: InputBorder.none,
                                               disabledBorder: InputBorder.none,
                                               hintText:
-                                                  "Type you question here..."),
+                                                  "Type you question here...",
+                                              hintStyle: TextStyle(
+                                                  color: Colors.white)),
                                         ),
                                       )
                                     ],

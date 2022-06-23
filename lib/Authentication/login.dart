@@ -148,8 +148,14 @@ class _LogInState extends State<LogIn> {
                   SizedBox(
                     height: getheight(context, 35),
                   ),
-                  BlueButton(
-                    title: "Log In",
+                  GestureDetector(
+                    onTap: () {
+                      /// checking login
+                      Navigator.pushNamed(context, '/navbar');
+                    },
+                    child: BlueButton(
+                      title: "Log In",
+                    ),
                   ),
                   SizedBox(
                     height: getheight(context, 35),

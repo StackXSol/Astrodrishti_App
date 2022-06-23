@@ -225,9 +225,9 @@ class _DetailsState extends State<Details> {
                     height: getheight(context, 20),
                   ),
                   GestureDetector(
-                    // onTap: () {
-                    //   Navigator.pushNamed(context, '/otp');
-                    // },
+                    onTap: () {
+                      Navigator.pushNamed(context, '/navbar');
+                    },
                     child: BlueButton(
                       title: "Explore",
                     ),

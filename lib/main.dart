@@ -8,6 +8,7 @@ import 'package:astrodrishti/Screens/order_history.dart';
 import 'package:astrodrishti/Screens/profile.dart';
 import 'package:flutter/material.dart';
 
+import 'MainScreens/BottomNavBar.dart';
 import 'Screens/saved.dart';
 
 void main() {
@@ -36,8 +37,9 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => Profile(),
         '/saved': (context) => Saved(),
         '/analysis': (context) => Analysis(),
+        '/navbar': (context) => BottomBar(),
       },
-      initialRoute: '/analysis',
+      initialRoute: '/login',
     );
   }
 }
