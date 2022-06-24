@@ -80,9 +80,12 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(
                       height: getheight(context, 15),
                     ),
-                    Divider(
-                      color: Color(0xff1F2463),
-                      thickness: 2,
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: Divider(
+                        color: Color(0xff1F2463),
+                        thickness: 2,
+                      ),
                     ),
                     SizedBox(
                       height: getheight(context, 23),
@@ -186,11 +189,21 @@ class _SignUpState extends State<SignUp> {
                             style: TextStyle(
                                 color: Color(0xff21D4FD),
                                 fontWeight: FontWeight.w700,
-                                fontSize: 15),
+                                fontSize: 16),
                           ),
                         ),
                       ],
-                    )
+                    ),
+                    SizedBox(
+                      height: getheight(context, 16),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: Divider(
+                        color: Color(0xff1F2463),
+                        thickness: 2,
+                      ),
+                    ),
                   ],
                 ),
               ),

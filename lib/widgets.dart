@@ -16,6 +16,13 @@ final Shader blue_text_grad = LinearGradient(
   colors: <Color>[Color(0xff21D4FD), Color(0xff6D80FE)],
 ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
 
+final Shader orange_text_grad = LinearGradient(
+  colors: <Color>[
+    Color.fromARGB(255, 253, 191, 33),
+    Color.fromARGB(255, 208, 90, 11)
+  ],
+).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
+
 LinearGradient blue_grade =
     LinearGradient(colors: [Color(0xff21D4FD), Color(0xff6D80FE)]);
 

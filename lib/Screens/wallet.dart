@@ -6,76 +6,75 @@ class Wallet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: bgColor,
-      body: SingleChildScrollView(
-        child: Container(
-            child: Stack(children: [
-          Column(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: bgColor,
+        body: SingleChildScrollView(
+          child: Container(
+              child: Column(
             children: [
-              Positioned(
-                  top: getheight(context, 375),
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child: Container(
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [Color(0xFF0b1339), Color(0xFF232a78)],
-                          ),
-                          borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(16),
-                              bottomLeft: Radius.circular(16))),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 16),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(height: getheight(context, 88)),
-                                Icon(
-                                  Icons.arrow_back,
-                                  color: Colors.white,
-                                  size: 30,
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  "Wallet",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 30),
-                                ),
-                                SizedBox(height: getheight(context, 24)),
-                                Text("Total Avaliable Balance"),
-                                SizedBox(height: getheight(context, 10)),
-                                Text(
-                                  "2000",
-                                  style: TextStyle(
-                                      fontSize: 30, color: Color(0xFF21D4FD)),
-                                ),
-                                SizedBox(
-                                  height: getheight(context, 22),
-                                )
-                              ],
+              Container(
+                  height: getheight(context, 234),
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [Color(0xFF0b1339), Color(0xFF232a78)],
+                      ),
+                      borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(16),
+                          bottomLeft: Radius.circular(16))),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: getheight(context, 12)),
+                            Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                              size: 30,
                             ),
-                          ),
-                          SizedBox(
-                            width: getwidth(context, 22),
-                          ),
-                          Image(
-                            image: AssetImage("assets/images/Groupwheel.png"),
-                            height: getheight(context, 230),
-                            width: getwidth(context, 230),
-                          )
-                        ],
-                      ))),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Text(
+                              "Wallet",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 30),
+                            ),
+                            SizedBox(height: getheight(context, 24)),
+                            Text("Total Avaliable Balance"),
+                            SizedBox(height: getheight(context, 10)),
+                            Text(
+                              "2000",
+                              style: TextStyle(
+                                  fontSize: 30, color: Color(0xFF21D4FD)),
+                            ),
+                            SizedBox(
+                              height: getheight(context, 22),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: getwidth(context, 22),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Image(
+                          image: AssetImage("assets/images/Groupwheel.png"),
+                          height: getheight(context, 230),
+                          width: getwidth(context, 230),
+                        ),
+                      )
+                    ],
+                  )),
               SizedBox(
                 height: getheight(context, 26),
               ),
@@ -97,22 +96,22 @@ class Wallet extends StatelessWidget {
                 spacing: 20,
                 children: [
                   Recharges(
-                    price: "25",
-                  ),
-                  Recharges(
-                    price: "55",
-                  ),
-                  Recharges(
-                    price: "65",
+                    price: "50",
                   ),
                   Recharges(
                     price: "100",
                   ),
                   Recharges(
-                    price: "250",
+                    price: "200",
                   ),
                   Recharges(
-                    price: "200",
+                    price: "300",
+                  ),
+                  Recharges(
+                    price: "500",
+                  ),
+                  Recharges(
+                    price: "1000",
                   )
                 ],
               ),
@@ -152,6 +151,7 @@ class Wallet extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8)),
                     child: TextField(
                         decoration: InputDecoration(
+                            suffixIcon: Icon(Icons.arrow_forward_ios),
                             contentPadding:
                                 EdgeInsets.symmetric(horizontal: 10),
                             focusedBorder: InputBorder.none,
@@ -209,8 +209,8 @@ class Wallet extends StatelessWidget {
                 height: 30,
               )
             ],
-          ),
-        ])),
+          )),
+        ),
       ),
     );
   }
