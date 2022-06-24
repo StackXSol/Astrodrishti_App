@@ -1,3 +1,4 @@
+import 'package:astrodrishti/Screens/Drawer.dart';
 import 'package:astrodrishti/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -9,10 +10,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  var _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: _scaffoldKey,
+        drawer: AstroDrawer(),
         backgroundColor: Colors.transparent,
         body: Container(
           width: MediaQuery.of(context).size.width,
@@ -24,15 +28,14 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: getheight(context, 45),
-                ),
                 Padding(
                   padding: EdgeInsets.only(
                       left: getwidth(context, 8),
                       bottom: getheight(context, 21)),
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _scaffoldKey.currentState!.openDrawer();
+                    },
                     icon: Icon(
                       Icons.menu,
                       color: Colors.white,
@@ -55,16 +58,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 24),
                       ),
                       Spacer(),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/profile');
-                        },
-                        child: CircleAvatar(
-                          radius: 20,
-                          backgroundColor: Colors.transparent,
-                          backgroundImage: NetworkImage(
-                              "https://stackxsolutions.in/static/assets/img/portfolio/astrodrishti.png"),
-                        ),
+                      CircleAvatar(
+                        radius: 20,
+                        backgroundColor: Colors.transparent,
+                        backgroundImage: NetworkImage(
+                            "https://stackxsolutions.in/static/assets/img/portfolio/astrodrishti.png"),
                       ),
                       SizedBox(
                         width: getwidth(context, 16),
@@ -138,19 +136,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(
                           height: getheight(context, 12),
                         ),
-                        SingleChildScrollView(
-                          child: Expanded(
-                            child: Container(
-                              height: getheight(context, 120),
-                              child: Text(
-                                "You could find the hardest person to face is you, Pisces. You tend toward introspection, and you may find yourself shrinking into self-recrimination. You could analyze the important people in your life and yet fail to address the one you really need to look at . You could find the hardest person to face is you, Pisces. You tend toward introspection, and you may find yourself shrinking into self-recrimination. You could analyze the important people in your life and yet fail to address the one you really need to look at ",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14),
-                              ),
-                            ),
-                          ),
+                        Text(
+                          "You could find the hardest person to face is you, Pisces. You tend toward introspection, and you may find yourself shrinking into self-recrimination. You could analyze the important people in your life and yet fail to address the one you really need to look at .",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14),
                         ),
                         SizedBox(
                           height: getheight(context, 24),
