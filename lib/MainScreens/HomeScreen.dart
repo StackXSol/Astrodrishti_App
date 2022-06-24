@@ -11,233 +11,236 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/images/background.png"),
-                fit: BoxFit.cover)),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: getheight(context, 45),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    left: getwidth(context, 8), bottom: getheight(context, 21)),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.menu,
-                    color: Colors.white,
-                    size: 35,
-                  ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/background.png"),
+                  fit: BoxFit.cover)),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: getheight(context, 45),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    left: getwidth(context, 16),
-                    bottom: getheight(context, 16)),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Hi, Jyotsana Gaur\nGaur",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 24),
-                    ),
-                    Spacer(),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/profile');
-                      },
-                      child: CircleAvatar(
-                        radius: 20,
-                        backgroundColor: Colors.transparent,
-                        backgroundImage: NetworkImage(
-                            "https://stackxsolutions.in/static/assets/img/portfolio/astrodrishti.png"),
-                      ),
-                    ),
-                    SizedBox(
-                      width: getwidth(context, 16),
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    left: getwidth(context, 16),
-                    bottom: getheight(context, 28)),
-                child: Text(
-                  "♓︎ Pices, 19 Feb 1999",
-                  style: TextStyle(
-                      foreground: Paint()..shader = blue_text_grad,
-                      // color: Color(0xff6D80FE),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  _HoroBlock(
-                    icon: Icons.heart_broken,
-                    title: "Love",
-                  ),
-                  _HoroBlock(
-                    icon: Icons.leaderboard,
-                    title: "Career",
-                  ),
-                  _HoroBlock(
-                    icon: Icons.money,
-                    title: "Finance",
-                  ),
-                  _HoroBlock(
-                    icon: Icons.health_and_safety,
-                    title: "Health",
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    left: getwidth(context, 16),
-                    top: getheight(context, 36),
-                    right: getwidth(context, 16)),
-                child: Container(
-                  width: getwidth(context, 343),
-                  padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xff4036AD).withOpacity(0.7),
-                        Color(0xff060C27).withOpacity(0.217)
-                      ],
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: getwidth(context, 8),
+                      bottom: getheight(context, 21)),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.menu,
+                      color: Colors.white,
+                      size: 35,
                     ),
                   ),
-                  child: Column(
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: getwidth(context, 16),
+                      bottom: getheight(context, 16)),
+                  child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Today Horoscope",
+                        "Hi, Jyotsana Gaur\nGaur",
                         style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white),
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 24),
                       ),
-                      SizedBox(
-                        height: getheight(context, 12),
-                      ),
-                      SingleChildScrollView(
-                        child: Expanded(
-                          child: Container(
-                            height: getheight(context, 120),
-                            child: Text(
-                              "You could find the hardest person to face is you, Pisces. You tend toward introspection, and you may find yourself shrinking into self-recrimination. You could analyze the important people in your life and yet fail to address the one you really need to look at . You could find the hardest person to face is you, Pisces. You tend toward introspection, and you may find yourself shrinking into self-recrimination. You could analyze the important people in your life and yet fail to address the one you really need to look at ",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14),
-                            ),
-                          ),
+                      Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/profile');
+                        },
+                        child: CircleAvatar(
+                          radius: 20,
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: NetworkImage(
+                              "https://stackxsolutions.in/static/assets/img/portfolio/astrodrishti.png"),
                         ),
                       ),
                       SizedBox(
-                        height: getheight(context, 24),
-                      ),
-                      Wrap(
-                        spacing: getwidth(context, 95),
-                        runSpacing: getheight(context, 25),
-                        children: [
-                          _dot_clip(
-                            title: "97%",
-                          ),
-                          _dot_clip(
-                            title: "Work Hard ",
-                          ),
-                          _dot_clip(
-                            title: "Love Blossoms",
-                          ),
-                          _dot_clip(
-                            title: "Work Hard",
-                          )
-                        ],
-                        direction: Axis.horizontal,
-                      ),
+                        width: getwidth(context, 16),
+                      )
                     ],
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: getheight(context, 24),
-                    bottom: getheight(context, 32)),
-                child: Center(
-                    child: Image(
-                        width: getwidth(context, 340),
-                        height: getheight(context, 143),
-                        image: AssetImage("assets/images/ask.png"))),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    left: getwidth(context, 16),
-                    bottom: getheight(context, 16)),
-                child: Text(
-                  "More Features",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: getwidth(context, 16),
+                      bottom: getheight(context, 28)),
+                  child: Text(
+                    "♓︎ Pices, 19 Feb 1999",
+                    style: TextStyle(
+                        foreground: Paint()..shader = blue_text_grad,
+                        // color: Color(0xff6D80FE),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14),
+                  ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    left: getwidth(context, 16),
-                    bottom: getheight(context, 33)),
-                child: Wrap(
-                  spacing: 25,
-                  runSpacing: 25,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      height: getheight(context, 164),
-                      width: getwidth(context, 159),
-                      decoration: BoxDecoration(
-                          color: Color(0xff4036AD).withOpacity(0.32),
-                          borderRadius: BorderRadius.circular(10)),
+                    _HoroBlock(
+                      icon: Icons.heart_broken,
+                      title: "Love",
                     ),
-                    Container(
-                      height: getheight(context, 164),
-                      width: getwidth(context, 159),
-                      decoration: BoxDecoration(
-                          color: Color(0xff4036AD).withOpacity(0.32),
-                          borderRadius: BorderRadius.circular(10)),
+                    _HoroBlock(
+                      icon: Icons.leaderboard,
+                      title: "Career",
                     ),
-                    Container(
-                      height: getheight(context, 164),
-                      width: getwidth(context, 159),
-                      decoration: BoxDecoration(
-                          color: Color(0xff4036AD).withOpacity(0.32),
-                          borderRadius: BorderRadius.circular(10)),
+                    _HoroBlock(
+                      icon: Icons.money,
+                      title: "Finance",
                     ),
-                    Container(
-                      height: getheight(context, 164),
-                      width: getwidth(context, 159),
-                      decoration: BoxDecoration(
-                          color: Color(0xff4036AD).withOpacity(0.32),
-                          borderRadius: BorderRadius.circular(10)),
+                    _HoroBlock(
+                      icon: Icons.health_and_safety,
+                      title: "Health",
                     ),
                   ],
                 ),
-              )
-            ],
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: getwidth(context, 16),
+                      top: getheight(context, 36),
+                      right: getwidth(context, 16)),
+                  child: Container(
+                    width: getwidth(context, 343),
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color(0xff4036AD).withOpacity(0.7),
+                          Color(0xff060C27).withOpacity(0.217)
+                        ],
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Today Horoscope",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: getheight(context, 12),
+                        ),
+                        SingleChildScrollView(
+                          child: Expanded(
+                            child: Container(
+                              height: getheight(context, 120),
+                              child: Text(
+                                "You could find the hardest person to face is you, Pisces. You tend toward introspection, and you may find yourself shrinking into self-recrimination. You could analyze the important people in your life and yet fail to address the one you really need to look at . You could find the hardest person to face is you, Pisces. You tend toward introspection, and you may find yourself shrinking into self-recrimination. You could analyze the important people in your life and yet fail to address the one you really need to look at ",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: getheight(context, 24),
+                        ),
+                        Wrap(
+                          spacing: getwidth(context, 95),
+                          runSpacing: getheight(context, 25),
+                          children: [
+                            _dot_clip(
+                              title: "97%",
+                            ),
+                            _dot_clip(
+                              title: "Work Hard ",
+                            ),
+                            _dot_clip(
+                              title: "Love Blossoms",
+                            ),
+                            _dot_clip(
+                              title: "Work Hard",
+                            )
+                          ],
+                          direction: Axis.horizontal,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: getheight(context, 24),
+                      bottom: getheight(context, 32)),
+                  child: Center(
+                      child: Image(
+                          width: getwidth(context, 340),
+                          height: getheight(context, 143),
+                          image: AssetImage("assets/images/ask.png"))),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: getwidth(context, 16),
+                      bottom: getheight(context, 16)),
+                  child: Text(
+                    "More Features",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: getwidth(context, 16),
+                      bottom: getheight(context, 33)),
+                  child: Wrap(
+                    spacing: 25,
+                    runSpacing: 25,
+                    children: [
+                      Container(
+                        height: getheight(context, 164),
+                        width: getwidth(context, 159),
+                        decoration: BoxDecoration(
+                            color: Color(0xff4036AD).withOpacity(0.32),
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        height: getheight(context, 164),
+                        width: getwidth(context, 159),
+                        decoration: BoxDecoration(
+                            color: Color(0xff4036AD).withOpacity(0.32),
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        height: getheight(context, 164),
+                        width: getwidth(context, 159),
+                        decoration: BoxDecoration(
+                            color: Color(0xff4036AD).withOpacity(0.32),
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        height: getheight(context, 164),
+                        width: getwidth(context, 159),
+                        decoration: BoxDecoration(
+                            color: Color(0xff4036AD).withOpacity(0.32),
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

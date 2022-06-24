@@ -15,139 +15,141 @@ class OtpAuth extends StatefulWidget {
 class _OtpAuthState extends State<OtpAuth> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: bgColor,
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              SizedBox(
-                height: getheight(context, 86),
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    "Confirm\nOTP",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 36),
-                  ),
-                  SizedBox(
-                    width: getwidth(context, 11),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: getheight(context, 58)),
-                    child: Image(
-                      image: AssetImage("assets/images/Groupwheel.png"),
-                      height: getheight(context, 372),
-                      width: getheight(context, 372),
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
-          Positioned(
-            top: getheight(context, 490),
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              decoration: BoxDecoration(
-                  color: bottomSheetColor,
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(24),
-                      topLeft: Radius.circular(24))),
-              child: SingleChildScrollView(
-                child: Column(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: bgColor,
+        body: Stack(
+          children: [
+            Column(
+              children: [
+                SizedBox(
+                  height: getheight(context, 86),
+                ),
+                Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: getheight(context, 24),
+                      width: 15,
+                    ),
+                    Text(
+                      "Confirm\nOTP",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 36),
+                    ),
+                    SizedBox(
+                      width: getwidth(context, 11),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: getwidth(context, 18)),
-                      child: Text(
-                        "Enter code sent to your number",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18),
+                      padding: EdgeInsets.only(top: getheight(context, 58)),
+                      child: Image(
+                        image: AssetImage("assets/images/Groupwheel.png"),
+                        height: getheight(context, 372),
+                        width: getheight(context, 372),
                       ),
-                    ),
-                    SizedBox(
-                      height: getheight(context, 15),
-                    ),
-                    Divider(
-                      color: Color(0xff1F2463),
-                      thickness: 2,
-                    ),
-                    SizedBox(
-                      height: getheight(context, 23),
-                    ),
-                    OTPTextField(
-                      length: 6,
-                      width: MediaQuery.of(context).size.width,
-                      fieldWidth: 45,
-                      style: TextStyle(fontSize: 17, color: Colors.white),
-                      textFieldAlignment: MainAxisAlignment.spaceAround,
-                      fieldStyle: FieldStyle.box,
-                      otpFieldStyle: OtpFieldStyle(
-                          enabledBorderColor: Colors.white,
-                          borderColor: Colors.white),
-                      onCompleted: (pin) {
-                        print("Completed: " + pin);
-                      },
-                    ),
-                    SizedBox(
-                      height: getheight(context, 35),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushReplacementNamed(context, '/details');
-                      },
-                      child: BlueButton(
-                        title: "Next",
+                    )
+                  ],
+                )
+              ],
+            ),
+            Positioned(
+              top: getheight(context, 490),
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: bottomSheetColor,
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(24),
+                        topLeft: Radius.circular(24))),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: getheight(context, 24),
                       ),
-                    ),
-                    SizedBox(
-                      height: getheight(context, 35),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Resent OTP in  ",
+                      Padding(
+                        padding: EdgeInsets.only(left: getwidth(context, 18)),
+                        child: Text(
+                          "Enter code sent to your number",
                           style: TextStyle(
                               color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 15),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, "/signup");
-                          },
-                          child: Text(
-                            "1:12 min",
+                      ),
+                      SizedBox(
+                        height: getheight(context, 15),
+                      ),
+                      Divider(
+                        color: Color(0xff1F2463),
+                        thickness: 2,
+                      ),
+                      SizedBox(
+                        height: getheight(context, 23),
+                      ),
+                      OTPTextField(
+                        length: 6,
+                        width: MediaQuery.of(context).size.width,
+                        fieldWidth: 45,
+                        style: TextStyle(fontSize: 17, color: Colors.white),
+                        textFieldAlignment: MainAxisAlignment.spaceAround,
+                        fieldStyle: FieldStyle.box,
+                        otpFieldStyle: OtpFieldStyle(
+                            enabledBorderColor: Colors.white,
+                            borderColor: Colors.white),
+                        onCompleted: (pin) {
+                          print("Completed: " + pin);
+                        },
+                      ),
+                      SizedBox(
+                        height: getheight(context, 35),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacementNamed(context, '/details');
+                        },
+                        child: BlueButton(
+                          title: "Next",
+                        ),
+                      ),
+                      SizedBox(
+                        height: getheight(context, 35),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Resent OTP in  ",
                             style: TextStyle(
-                                color: Color(0xff21D4FD),
+                                color: Colors.white,
                                 fontWeight: FontWeight.w700,
                                 fontSize: 15),
                           ),
-                        ),
-                      ],
-                    )
-                  ],
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, "/signup");
+                            },
+                            child: Text(
+                              "1:12 min",
+                              style: TextStyle(
+                                  color: Color(0xff21D4FD),
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 15),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
