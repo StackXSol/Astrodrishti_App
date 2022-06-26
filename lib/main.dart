@@ -6,13 +6,16 @@ import 'package:astrodrishti/Screens/analysis.dart';
 import 'package:astrodrishti/Screens/notifications.dart';
 import 'package:astrodrishti/Screens/order_history.dart';
 import 'package:astrodrishti/Screens/profile.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 import 'MainScreens/BottomNavBar.dart';
 import 'Screens/saved.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -32,7 +35,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => const LogIn(),
         '/signup': (context) => const SignUp(),
-        '/otp': (context) => OtpAuth(),
         '/navbar': (context) => BottomBar(),
         '/details': (context) => Details(),
         '/orders': (context) => OrderHistory(),

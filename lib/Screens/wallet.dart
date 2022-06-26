@@ -13,68 +13,74 @@ class Wallet extends StatelessWidget {
           child: Container(
               child: Column(
             children: [
-              Container(
-                  height: getheight(context, 234),
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [Color(0xFF0b1339), Color(0xFF232a78)],
-                      ),
-                      borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(16),
-                          bottomLeft: Radius.circular(16))),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+              ClipRect(
+                child: Container(
+                    height: getheight(context, 234),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [Color(0xFF0b1339), Color(0xFF232a78)],
+                        ),
+                        borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(16),
+                            bottomLeft: Radius.circular(16))),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: getheight(context, 12)),
+                              Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Text(
+                                "Wallet",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 30),
+                              ),
+                              SizedBox(height: getheight(context, 24)),
+                              Text("Total Avaliable Balance"),
+                              SizedBox(height: getheight(context, 10)),
+                              Text(
+                                "₹2000",
+                                style: TextStyle(
+                                    fontSize: 30, color: Color(0xFF21D4FD)),
+                              ),
+                              SizedBox(
+                                height: getheight(context, 22),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: getwidth(context, 22),
+                        ),
+                        Column(
                           children: [
-                            SizedBox(height: getheight(context, 12)),
-                            Icon(
-                              Icons.arrow_back,
-                              color: Colors.white,
-                              size: 30,
-                            ),
                             SizedBox(
-                              height: 30,
+                              height: 20,
                             ),
-                            Text(
-                              "Wallet",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 30),
+                            Image(
+                              image: AssetImage("assets/images/Groupwheel.png"),
+                              height: getheight(context, 230),
+                              width: getwidth(context, 230),
                             ),
-                            SizedBox(height: getheight(context, 24)),
-                            Text("Total Avaliable Balance"),
-                            SizedBox(height: getheight(context, 10)),
-                            Text(
-                              "2000",
-                              style: TextStyle(
-                                  fontSize: 30, color: Color(0xFF21D4FD)),
-                            ),
-                            SizedBox(
-                              height: getheight(context, 22),
-                            )
                           ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: getwidth(context, 22),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Image(
-                          image: AssetImage("assets/images/Groupwheel.png"),
-                          height: getheight(context, 230),
-                          width: getwidth(context, 230),
-                        ),
-                      )
-                    ],
-                  )),
+                        )
+                      ],
+                    )),
+              ),
               SizedBox(
                 height: getheight(context, 26),
               ),
@@ -96,27 +102,27 @@ class Wallet extends StatelessWidget {
                 spacing: 20,
                 children: [
                   Recharges(
-                    price: "50",
+                    price: "₹50",
                   ),
                   Recharges(
-                    price: "100",
+                    price: "₹100",
                   ),
                   Recharges(
-                    price: "200",
+                    price: "₹200",
                   ),
                   Recharges(
-                    price: "300",
+                    price: "₹300",
                   ),
                   Recharges(
-                    price: "500",
+                    price: "₹500",
                   ),
                   Recharges(
-                    price: "1000",
+                    price: "₹1000",
                   )
                 ],
               ),
               SizedBox(
-                height: getheight(context, 24),
+                height: getheight(context, 35),
               ),
               Padding(
                 padding:
@@ -125,77 +131,69 @@ class Wallet extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      "Apply coupons",
-                      style: TextStyle(fontSize: 26),
+                      "Apply coupon",
+                      style: TextStyle(fontSize: 20),
                     ),
-                    SizedBox(
-                      height: getheight(context, 16),
-                    ),
-                    Text("Coupon code"),
                   ],
                 ),
               ),
               SizedBox(
-                height: getheight(context, 10),
-              ),
-              Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: getwidth(context, 16)),
-                child: Container(
-                    padding: EdgeInsets.all(3),
-                    // height: getheight(context, getheight(context, 128)),
-                    width: getwidth(context, getwidth(context, 343)),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white),
-                        color: Color(0xFF161A4D),
-                        borderRadius: BorderRadius.circular(8)),
-                    child: TextField(
-                        decoration: InputDecoration(
-                            suffixIcon: Icon(Icons.arrow_forward_ios),
-                            contentPadding:
-                                EdgeInsets.symmetric(horizontal: 10),
-                            focusedBorder: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            errorBorder: InputBorder.none,
-                            disabledBorder: InputBorder.none,
-                            hintText: "Enter Code",
-                            hintStyle: TextStyle(color: Colors.white)))),
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Row(
-                children: [
-                  Spacer(),
-                  Text(
-                    "You have an discount of 300",
-                    style: TextStyle(color: Colors.green),
-                  ),
-                  SizedBox(
-                    width: getwidth(context, 15),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: getheight(context, 25),
+                height: getheight(context, 18),
               ),
               Padding(
                 padding:
                     EdgeInsets.symmetric(horizontal: getwidth(context, 15)),
+                child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white),
+                      color: Color(0xFF161A4D),
+                      borderRadius: BorderRadius.circular(8)),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                            style: TextStyle(color: Colors.white),
+                            cursorColor: Colors.white,
+                            decoration: InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 0),
+                                focusedBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                errorBorder: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                hintText: "Enter Code",
+                                hintStyle: TextStyle(color: Colors.white))),
+                      ),
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white,
+                          ))
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Visibility(
+                visible: false,
                 child: Row(
                   children: [
-                    Text("Previous orders"),
                     Spacer(),
-                    GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/orders');
-                        },
-                        child: Text("View all"))
+                    Text(
+                      "You have an discount of ₹300",
+                      style: TextStyle(color: Colors.green),
+                    ),
+                    SizedBox(
+                      width: getwidth(context, 24),
+                    ),
                   ],
                 ),
               ),
               SizedBox(
-                height: getheight(context, 24),
+                height: getheight(context, 65),
               ),
               GestureDetector(
                 onTap: () {

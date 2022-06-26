@@ -1,3 +1,4 @@
+import 'package:astrodrishti/Authentication/funcs.dart';
 import 'package:astrodrishti/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,10 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   bool _obscure = true;
+
+  late TextEditingController mobile = TextEditingController();
+  late TextEditingController email = TextEditingController();
+  late String password = "";
 
   @override
   Widget build(BuildContext context) {
@@ -92,11 +97,13 @@ class _SignUpState extends State<SignUp> {
                     ),
                     _LocalTExtField(
                       title: "Mobile No.",
+                      controller: mobile,
                       hint: "92XXXXXX99",
                       input_type: TextInputType.number,
                     ),
                     _LocalTExtField(
                       title: "Email",
+                      controller: email,
                       hint: "xyz@email.com",
                       input_type: TextInputType.emailAddress,
                     ),
@@ -129,6 +136,9 @@ class _SignUpState extends State<SignUp> {
                               children: [
                                 Expanded(
                                   child: TextField(
+                                    onChanged: (value) {
+                                      password = value;
+                                    },
                                     obscureText: _obscure,
                                     cursorColor: Colors.white,
                                     style: TextStyle(color: Color(0xffADADAD)),
@@ -161,6 +171,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     GestureDetector(
                       onTap: () {
+                        sign_up(email.text, password, mobile.text, context);
                         Navigator.pushNamed(context, '/otp');
                       },
                       child: BlueButton(
@@ -217,9 +228,15 @@ class _SignUpState extends State<SignUp> {
 
 class _LocalTExtField extends StatelessWidget {
   _LocalTExtField(
-      {required this.title, required this.hint, required this.input_type});
+      {required this.title,
+      required this.hint,
+      required this.input_type,
+      required this.controller});
 
   String title, hint;
+
+  TextEditingController controller;
+
   TextInputType input_type;
 
   @override
@@ -250,6 +267,7 @@ class _LocalTExtField extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                    controller: controller,
                     keyboardType: input_type,
                     cursorColor: Colors.white,
                     style: TextStyle(color: Color(0xffADADAD)),

@@ -1,3 +1,5 @@
+import 'package:astrodrishti/Authentication/funcs.dart';
+import 'package:astrodrishti/MainScreens/BottomNavBar.dart';
 import 'package:astrodrishti/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +14,8 @@ class Details extends StatefulWidget {
 class _DetailsState extends State<Details> {
   TextEditingController _datecontroller = TextEditingController();
   TextEditingController _timecontroller = TextEditingController();
+  TextEditingController _namecontroller = TextEditingController();
+  TextEditingController _placecontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +93,7 @@ class _DetailsState extends State<Details> {
                     ),
                     _LocalTExtField(
                       title: "Name",
+                      controller: _namecontroller,
                       hint: "Enter your name",
                     ),
                     Padding(
@@ -209,7 +214,7 @@ class _DetailsState extends State<Details> {
                                       });
                                     },
                                     icon: Icon(
-                                      Icons.time_to_leave,
+                                      Icons.timelapse,
                                       color: Colors.white,
                                     ))
                               ],
@@ -220,15 +225,26 @@ class _DetailsState extends State<Details> {
                     ),
                     _LocalTExtField(
                       title: "Birth Place",
+                      controller: _placecontroller,
                       hint: "Enter your birth place",
                     ),
                     SizedBox(
                       height: getheight(context, 20),
                     ),
                     GestureDetector(
-                      // onTap: () {
-                      //   Navigator.pushNamed(context, '/otp');
-                      // },
+                      onTap: () {
+                        pushData(
+                            _namecontroller.text,
+                            _datecontroller.text,
+                            _timecontroller.text,
+                            _placecontroller.text,
+                            31,
+                            78);
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BottomBar()));
+                      },
                       child: BlueButton(
                         title: "Explore",
                       ),
@@ -245,9 +261,12 @@ class _DetailsState extends State<Details> {
 }
 
 class _LocalTExtField extends StatelessWidget {
-  _LocalTExtField({required this.title, required this.hint});
+  _LocalTExtField(
+      {required this.title, required this.hint, required this.controller});
 
   String title, hint;
+
+  TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -277,6 +296,7 @@ class _LocalTExtField extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                    controller: controller,
                     cursorColor: Colors.white,
                     style: TextStyle(color: Color(0xffADADAD)),
                     decoration: InputDecoration(

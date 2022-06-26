@@ -78,12 +78,10 @@ class _AstroDrawerState extends State<AstroDrawer> {
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: getwidth(context, 105)),
-                      child: Image(
-                          image: NetworkImage(
-                              "https://astrodrishti.herokuapp.com/static/Images/logo.png")),
+                      child: Image(image: AssetImage("assets/images/logo.png")),
                     ),
                     SizedBox(
-                      height: getheight(context, 10),
+                      height: getheight(context, 12),
                     ),
                     Center(
                         child: Text(
@@ -99,11 +97,11 @@ class _AstroDrawerState extends State<AstroDrawer> {
               ),
 
               SizedBox(
-                height: getheight(context, 32),
+                height: getheight(context, 35),
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    left: getwidth(context, 22), top: getheight(context, 0)),
+                    left: getwidth(context, 20), top: getheight(context, 0)),
                 child: Column(
                   children: [
                     _drawerWidget(
@@ -135,13 +133,13 @@ class _drawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: getheight(context, 36)),
+      padding: EdgeInsets.only(bottom: getheight(context, 30)),
       child: Row(
         children: [
           Icon(
             icon,
             color: Color(0xff21D4FD),
-            size: 28,
+            size: 26,
           ),
           SizedBox(
             width: getwidth(context, 12),

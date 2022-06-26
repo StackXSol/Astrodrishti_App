@@ -1,3 +1,4 @@
+import 'package:astrodrishti/AskQuestion/askQuestion.dart';
 import 'package:astrodrishti/Authentication/login.dart';
 import 'package:astrodrishti/MainScreens/HomeScreen.dart';
 import 'package:astrodrishti/Screens/wallet.dart';
@@ -15,70 +16,70 @@ class BottomBar extends StatefulWidget {
 class _BottomBarState extends State<BottomBar> {
   int index = 0;
 
-  List<Widget> _screens = [HomeScreen(), Wallet()];
+  List<Widget> _screens = [HomeScreen(), askQuestion(), Wallet()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: GestureDetector(
-          onTap: () {
-            showModalBottomSheet<void>(
-              backgroundColor: Colors.transparent,
-              context: context,
-              builder: (BuildContext context) {
-                return Container(
-                  padding: EdgeInsets.all(18),
-                  decoration: BoxDecoration(
-                      color: Color(0xff161A4D),
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          topRight: Radius.circular(15))),
-                  height: getheight(context, 472),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Row(
-                          children: [
-                            Text(
-                              "Ask Your Question",
-                              style: TextStyle(fontSize: 18),
-                            ),
-                            Spacer(),
-                            IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: Icon(
-                                  Icons.cancel,
-                                  color: Colors.white,
-                                ))
-                          ],
-                        ),
-                        Divider(
-                          color: Color(0xff1F2463),
-                        ),
-                        SizedBox(
-                          height: getheight(context, 22),
-                        ),
-                        Row(
-                          children: [Text("Question"), Spacer(), Text("0/100")],
-                        ),
-                        SizedBox(
-                          height: getheight(context, 8),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                              hintText: "Type your qustion here..."),
-                        )
-                      ],
-                    ),
-                  ),
-                );
-              },
-            );
-          },
-          child: _BlueButton(title: "Ask Question")),
+      // floatingActionButton: GestureDetector(
+      //     onTap: () {
+      //       showModalBottomSheet<void>(
+      //         backgroundColor: Colors.transparent,
+      //         context: context,
+      //         builder: (BuildContext context) {
+      //           return Container(
+      //             padding: EdgeInsets.all(18),
+      //             decoration: BoxDecoration(
+      //                 color: Color(0xff161A4D),
+      //                 borderRadius: BorderRadius.only(
+      //                     topLeft: Radius.circular(15),
+      //                     topRight: Radius.circular(15))),
+      //             height: getheight(context, 472),
+      //             child: SingleChildScrollView(
+      //               child: Column(
+      //                 mainAxisAlignment: MainAxisAlignment.start,
+      //                 mainAxisSize: MainAxisSize.min,
+      //                 children: <Widget>[
+      //                   Row(
+      //                     children: [
+      //                       Text(
+      //                         "Ask Your Question",
+      //                         style: TextStyle(fontSize: 18),
+      //                       ),
+      //                       Spacer(),
+      //                       IconButton(
+      //                           onPressed: () {
+      //                             Navigator.pop(context);
+      //                           },
+      //                           icon: Icon(
+      //                             Icons.cancel,
+      //                             color: Colors.white,
+      //                           ))
+      //                     ],
+      //                   ),
+      //                   Divider(
+      //                     color: Color(0xff1F2463),
+      //                   ),
+      //                   SizedBox(
+      //                     height: getheight(context, 22),
+      //                   ),
+      //                   Row(
+      //                     children: [Text("Question"), Spacer(), Text("0/100")],
+      //                   ),
+      //                   SizedBox(
+      //                     height: getheight(context, 8),
+      //                   ),
+      //                   TextFormField(
+      //                     decoration: InputDecoration(
+      //                         hintText: "Type your qustion here..."),
+      //                   )
+      //                 ],
+      //               ),
+      //             ),
+      //           );
+      //         },
+      //       );
+      //     },
+      //     child: _BlueButton(title: "Ask Question")),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
       backgroundColor: Colors.transparent,
@@ -96,9 +97,11 @@ class _BottomBarState extends State<BottomBar> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
+              icon: Icon(Icons.question_answer), label: "Ask ?"),
+          BottomNavigationBarItem(
               icon: Icon(Icons.wallet_membership), label: "Wallet")
         ],
-        backgroundColor: Color(0xff0C1236),
+        backgroundColor: Color.fromARGB(255, 17, 25, 72).withOpacity(0.6),
       ),
       body: _screens[index],
     );

@@ -1,4 +1,6 @@
 import 'package:astrodrishti/widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_field.dart';
@@ -6,13 +8,17 @@ import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
 
 class OtpAuth extends StatefulWidget {
-  const OtpAuth({Key? key}) : super(key: key);
+  OtpAuth({required this.otp});
+
+  int otp;
 
   @override
   State<OtpAuth> createState() => _OtpAuthState();
 }
 
 class _OtpAuthState extends State<OtpAuth> {
+  int pin = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,8 +106,8 @@ class _OtpAuthState extends State<OtpAuth> {
                       otpFieldStyle: OtpFieldStyle(
                           enabledBorderColor: Colors.white,
                           borderColor: Colors.white),
-                      onCompleted: (pin) {
-                        print("Completed: " + pin);
+                      onCompleted: (val) {
+                        pin = int.parse(val);
                       },
                     ),
                     SizedBox(
@@ -109,7 +115,17 @@ class _OtpAuthState extends State<OtpAuth> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacementNamed(context, '/details');
+                        print(widget.otp);
+                        print(pin);
+                        if (pin == widget.otp) {
+                          FirebaseFirestore.instance
+                              .collection("Users")
+                              .doc(FirebaseAuth.instance.currentUser!.uid)
+                              .update({"verified": true});
+                          Navigator.pushReplacementNamed(context, '/details');
+                        } else {
+                          print("wrong!");
+                        }
                       },
                       child: BlueButton(
                         title: "Next",
