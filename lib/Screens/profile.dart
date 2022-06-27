@@ -361,26 +361,10 @@ class Profile extends StatelessWidget {
                                   height: 10,
                                 ),
                                 GestureDetector(
-                                  onTap: () {
-                                    // submit bug
-                                  },
-                                  child: Container(
-                                    height: getheight(context, 50),
-                                    width: getwidth(context, 343),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      gradient: LinearGradient(
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                        colors: [
-                                          Color(0xff21D4FD).withOpacity(0.7),
-                                          Color(0xff6D80FE).withOpacity(0.217)
-                                        ],
-                                      ),
-                                    ),
-                                    child: Center(child: Text("Submit")),
-                                  ),
-                                ),
+                                    onTap: () {
+                                      // submit bug
+                                    },
+                                    child: BlueButton(title: "Submit")),
                               ],
                             ),
                           );
