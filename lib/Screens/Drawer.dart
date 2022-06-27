@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import 'profile.dart';
+
 class AstroDrawer extends StatefulWidget {
   const AstroDrawer({Key? key}) : super(key: key);
 
@@ -70,7 +72,7 @@ class _AstroDrawerState extends State<AstroDrawer> {
               // ),
 
               Padding(
-                padding: EdgeInsets.fromLTRB(00, getheight(context, 32), 00, 0),
+                padding: EdgeInsets.fromLTRB(00, getheight(context, 28), 00, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -104,15 +106,24 @@ class _AstroDrawerState extends State<AstroDrawer> {
                     left: getwidth(context, 20), top: getheight(context, 0)),
                 child: Column(
                   children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Profile()));
+                      },
+                      child: _drawerWidget(
+                          icon: Icons.account_circle_outlined,
+                          title: "Profile"),
+                    ),
                     _drawerWidget(
-                        icon: Icons.account_box_rounded, title: "Profile"),
-                    _drawerWidget(icon: Icons.sell, title: "Orders"),
+                        icon: Icons.notifications, title: "Notifications"),
+                    _drawerWidget(icon: Icons.inventory, title: "Orders"),
                     _drawerWidget(icon: Icons.save, title: "Saved Kundlis"),
                     _drawerWidget(
-                        icon: Icons.chat_bubble, title: "Ask Question?"),
-                    _drawerWidget(icon: Icons.book, title: "Blogs"),
+                        icon: Icons.question_answer, title: "Ask Question?"),
                     _drawerWidget(icon: Icons.share, title: "Share"),
-                    _drawerWidget(icon: Icons.dangerous, title: "Report Issue"),
+                    _drawerWidget(icon: Icons.report, title: "Report Issue"),
+                    _drawerWidget(icon: Icons.logout, title: "Log Out"),
                   ],
                 ),
               )

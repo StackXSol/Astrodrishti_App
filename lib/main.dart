@@ -6,12 +6,15 @@ import 'package:astrodrishti/Screens/analysis.dart';
 import 'package:astrodrishti/Screens/notifications.dart';
 import 'package:astrodrishti/Screens/order_history.dart';
 import 'package:astrodrishti/Screens/profile.dart';
+import 'package:astrodrishti/backend.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 import 'MainScreens/BottomNavBar.dart';
 import 'Screens/saved.dart';
+
+//global essentials
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

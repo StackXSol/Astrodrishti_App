@@ -6,10 +6,13 @@ class userData {
       required this.time,
       required this.sign,
       required this.place,
+      required this.lat,
+      required this.lon,
       required this.email});
 
   String name, dob, time, sign, place, email;
   int phone;
+  double lat, lon;
 
   String getName() {
     return name;
