@@ -34,10 +34,15 @@ class Wallet extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SizedBox(height: getheight(context, 12)),
-                              Icon(
-                                Icons.arrow_back,
-                                color: Colors.white,
-                                size: 30,
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Icon(
+                                  Icons.arrow_back,
+                                  color: Colors.white,
+                                  size: 30,
+                                ),
                               ),
                               SizedBox(
                                 height: 30,

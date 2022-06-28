@@ -248,7 +248,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           height: getwidth(context, 100),
                                           width: getwidth(context, 100),
                                           image: AssetImage(
-                                              "assets/images/analysis.png")),
+                                              "assets/images/report.png")),
                                       SizedBox(
                                         height: getheight(context, 20),
                                       ),
@@ -275,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   width: getwidth(context, 90),
                                   height: getwidth(context, 90),
                                   image:
-                                      AssetImage("assets/images/analysis.png")),
+                                      AssetImage("assets/images/report.png")),
                               SizedBox(
                                 height: getheight(context, 10),
                               ),
@@ -418,7 +418,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           height: getwidth(context, 100),
                                           width: getwidth(context, 100),
                                           image: AssetImage(
-                                              "assets/images/report.png")),
+                                              "assets/images/analysis.png")),
                                       SizedBox(
                                         height: getheight(context, 20),
                                       ),
@@ -445,7 +445,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   width: getwidth(context, 90),
                                   height: getwidth(context, 90),
                                   image:
-                                      AssetImage("assets/images/report.png")),
+                                      AssetImage("assets/images/analysis.png")),
                               SizedBox(
                                 height: getheight(context, 10),
                               ),

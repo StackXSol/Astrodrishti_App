@@ -32,10 +32,15 @@ class Profile extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(height: getheight(context, 18)),
-                          Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                            size: 30,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                              size: 30,
+                            ),
                           ),
                           SizedBox(
                             height: getheight(context, 35),
@@ -47,10 +52,6 @@ class Profile extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                                 fontSize: 30),
                           ),
-                          SizedBox(height: getheight(context, 24)),
-                          SizedBox(
-                            height: getheight(context, 22),
-                          )
                         ],
                       ),
                     ),
