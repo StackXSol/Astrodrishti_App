@@ -201,66 +201,68 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          showModalBottomSheet(
-                              backgroundColor: Color(0xFF161A4D),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(24),
-                              ),
-                              context: context,
-                              builder: (BuildContext context) {
-                                return Container(
-                                  height: getheight(context, 400),
-                                  child: Column(
-                                    children: <Widget>[
-                                      SizedBox(
-                                        height: getheight(context, 10),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 16),
-                                        child: Row(
-                                          children: [
-                                            Spacer(),
-                                            GestureDetector(
-                                              onTap: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: Container(
-                                                  height:
-                                                      getheight(context, 32),
-                                                  width: getheight(context, 32),
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              50),
-                                                      color: Color(0xFF010642)),
-                                                  child: Icon(
-                                                    Icons.cancel_outlined,
-                                                    color: Colors.white,
-                                                    size:
-                                                        getheight(context, 32),
-                                                  )),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      Image(
-                                          height: getwidth(context, 100),
-                                          width: getwidth(context, 100),
-                                          image: AssetImage(
-                                              "assets/images/report.png")),
-                                      SizedBox(
-                                        height: getheight(context, 20),
-                                      ),
-                                      Text("Kundali Analysis"),
-                                      SizedBox(
-                                        height: getheight(context, 20),
-                                      ),
-                                      BlueButton(title: "Know More")
-                                    ],
-                                  ),
-                                );
-                              });
+                          Navigator.pushNamed(context, "/analysis");
+                          //   showModalBottomSheet(
+                          //       backgroundColor: Color(0xFF161A4D),
+                          //       shape: RoundedRectangleBorder(
+                          //         borderRadius: BorderRadius.circular(24),
+                          //       ),
+                          //       context: context,
+                          //       builder: (BuildContext context) {
+                          //         return Container(
+                          //           height: getheight(context, 400),
+                          //           child: Column(
+                          //             children: <Widget>[
+                          //               SizedBox(
+                          //                 height: getheight(context, 10),
+                          //               ),
+                          //               Padding(
+                          //                 padding: EdgeInsets.symmetric(
+                          //                     horizontal: 16),
+                          //                 child: Row(
+                          //                   children: [
+                          //                     Spacer(),
+                          //                     GestureDetector(
+                          //                       onTap: () {
+                          //                         Navigator.pop(context);
+                          //                       },
+                          //                       child: Container(
+                          //                           height:
+                          //                               getheight(context, 32),
+                          //                           width: getheight(context, 32),
+                          //                           decoration: BoxDecoration(
+                          //                               borderRadius:
+                          //                                   BorderRadius.circular(
+                          //                                       50),
+                          //                               color: Color(0xFF010642)),
+                          //                           child: Icon(
+                          //                             Icons.cancel_outlined,
+                          //                             color: Colors.white,
+                          //                             size:
+                          //                                 getheight(context, 32),
+                          //                           )),
+                          //                     )
+                          //                   ],
+                          //                 ),
+                          //               ),
+                          //               Image(
+                          //                   height: getwidth(context, 100),
+                          //                   width: getwidth(context, 100),
+                          //                   image: AssetImage(
+                          //                       "assets/images/report.png")),
+                          //               SizedBox(
+                          //                 height: getheight(context, 20),
+                          //               ),
+                          //               Text("Kundali Analysis"),
+                          //               SizedBox(
+                          //                 height: getheight(context, 20),
+                          //               ),
+                          //               BlueButton(title: "Know More")
+                          //             ],
+                          //           ),
+                          //         );
+                          //       });
+                          // },
                         },
                         child: Container(
                           height: getheight(context, 164),

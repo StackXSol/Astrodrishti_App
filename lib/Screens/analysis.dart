@@ -13,6 +13,7 @@ class Analysis extends StatelessWidget {
           Column(
             children: [
               Container(
+                height: getheight(context, 200),
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
@@ -30,25 +31,27 @@ class Analysis extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height: getheight(context, 58)),
-                          Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                            size: 30,
+                          SizedBox(height: getheight(context, 18)),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                              size: 30,
+                            ),
                           ),
                           SizedBox(
                             height: 25,
                           ),
                           Text(
-                            "Kundli Analysis",
+                            "Kundali Analysis",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 25),
                           ),
-                          SizedBox(
-                            height: getheight(context, 22),
-                          )
                         ],
                       ),
                     ),
@@ -69,7 +72,7 @@ class Analysis extends StatelessWidget {
             ],
           ),
           Positioned(
-            top: getheight(context, 190),
+            top: getheight(context, 150),
             left: getwidth(context, 15),
             right: getwidth(context, 15),
             child: Container(

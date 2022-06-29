@@ -14,7 +14,7 @@ class OrderHistory extends StatelessWidget {
           children: [
             ClipRect(
               child: Container(
-                  height: getheight(context, 150),
+                  height: getheight(context, 160),
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
@@ -118,7 +118,15 @@ class Order extends StatelessWidget {
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF21D4FD)),
-              )
+              ),
+              SizedBox(
+                width: getwidth(context, 25),
+              ),
+              GestureDetector(
+                  onTap: () {
+                    //download the order
+                  },
+                  child: Icon(Icons.download, color: Colors.white))
             ],
           ),
         ),

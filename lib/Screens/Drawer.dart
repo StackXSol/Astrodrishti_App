@@ -18,79 +18,85 @@ class _AstroDrawerState extends State<AstroDrawer> {
     return Drawer(
       backgroundColor: Color(0xff0C153A).withOpacity(0.9),
       child: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.only(
-              left: getwidth(context, 0),
-              right: getwidth(context, 0),
-              top: getheight(context, 0)),
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(00, getheight(context, 28), 00, 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: getwidth(context, 105)),
-                      child: Image(image: AssetImage("assets/images/logo.png")),
-                    ),
-                    SizedBox(
-                      height: getheight(context, 12),
-                    ),
-                    Center(
-                        child: Text(
-                      "Astrodrishti",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        foreground: Paint()..shader = orange_text_grad,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(
+                left: getwidth(context, 0),
+                right: getwidth(context, 0),
+                top: getheight(context, 0)),
+            child: Column(
+              children: [
+                Padding(
+                  padding:
+                      EdgeInsets.fromLTRB(00, getheight(context, 28), 00, 0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: getwidth(context, 105)),
+                        child:
+                            Image(image: AssetImage("assets/images/logo.png")),
                       ),
-                    ))
-                  ],
+                      SizedBox(
+                        height: getheight(context, 12),
+                      ),
+                      Center(
+                          child: Text(
+                        "Astrodrishti",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          foreground: Paint()..shader = orange_text_grad,
+                        ),
+                      ))
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: getheight(context, 35),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    left: getwidth(context, 20), top: getheight(context, 0)),
-                child: Column(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Profile()));
-                      },
-                      child: _drawerWidget(
-                          icon: Icons.account_circle_outlined,
-                          title: "Profile"),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/notifications');
-                      },
-                      child: _drawerWidget(
-                          icon: Icons.notifications, title: "Notifications"),
-                    ),
-                    GestureDetector(
+                SizedBox(
+                  height: getheight(context, 35),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: getwidth(context, 20), top: getheight(context, 0)),
+                  child: Column(
+                    children: [
+                      GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, '/orders');
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Profile()));
                         },
                         child: _drawerWidget(
-                            icon: Icons.inventory, title: "Orders")),
-                    _drawerWidget(icon: Icons.save, title: "Saved Kundlis"),
-                    _drawerWidget(
-                        icon: Icons.question_answer, title: "Ask Question?"),
-                    _drawerWidget(icon: Icons.share, title: "Share"),
-                    _drawerWidget(icon: Icons.report, title: "Report Issue"),
-                    _drawerWidget(icon: Icons.logout, title: "Log Out"),
-                  ],
-                ),
-              )
-            ],
+                            icon: Icons.account_circle_outlined,
+                            title: "Profile"),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/notifications');
+                        },
+                        child: _drawerWidget(
+                            icon: Icons.notifications, title: "Notifications"),
+                      ),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/orders');
+                          },
+                          child: _drawerWidget(
+                              icon: Icons.inventory, title: "Orders")),
+                      _drawerWidget(icon: Icons.save, title: "Saved Kundlis"),
+                      _drawerWidget(
+                          icon: Icons.question_answer, title: "Ask Question?"),
+                      _drawerWidget(icon: Icons.share, title: "Share"),
+                      _drawerWidget(icon: Icons.report, title: "Report Issue"),
+                      _drawerWidget(icon: Icons.logout, title: "Log Out"),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

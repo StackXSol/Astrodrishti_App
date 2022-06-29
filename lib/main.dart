@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
         '/analysis': (context) => Analysis(),
         '/navbar': (context) => BottomBar(),
       },
-      initialRoute: '/loading',
+      initialRoute: '/navbar',
     );
   }
 }

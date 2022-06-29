@@ -154,7 +154,7 @@ class _LogInState extends State<LogIn> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          /// checking login
+                          // / checking login
                           // Navigator.pushNamed(context, '/navbar');
                           login(username.text, password, context);
                         },
