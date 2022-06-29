@@ -25,52 +25,6 @@ class _AstroDrawerState extends State<AstroDrawer> {
               top: getheight(context, 0)),
           child: Column(
             children: [
-              // Container(
-              //   decoration: BoxDecoration(
-              //     // border: Border.all(color: Colors.white),
-              //     color: Color(0xff21D4FD).withOpacity(0.6),
-              //     // borderRadius: BorderRadius.circular(10),
-              //   ),
-              //   padding: EdgeInsets.fromLTRB(getwidth(context, 16),
-              //       getheight(context, 40), 0, getheight(context, 40)),
-              //   child: Row(
-              //     children: [
-              //       CircleAvatar(
-              //         radius: getwidth(context, 38),
-              //         backgroundColor: Colors.white,
-              //         child: CircleAvatar(
-              //           backgroundColor: Colors.transparent,
-              //           radius: getwidth(context, 36),
-              //           backgroundImage: NetworkImage(
-              //               'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'),
-              //         ),
-              //       ),
-              //       SizedBox(
-              //         width: getwidth(context, 12),
-              //       ),
-              //       Column(
-              //         crossAxisAlignment: CrossAxisAlignment.start,
-              //         children: [
-              //           Text(
-              //             "Jyotsna Gaur",
-              //             style: TextStyle(
-              //                 color: Colors.white,
-              //                 fontSize: 22,
-              //                 fontWeight: FontWeight.w600),
-              //           ),
-              //           Text(
-              //             "xyxx@gmail.com",
-              //             style: TextStyle(
-              //                 color: Colors.white,
-              //                 fontSize: 18,
-              //                 fontWeight: FontWeight.w400),
-              //           ),
-              //         ],
-              //       )
-              //     ],
-              //   ),
-              // ),
-
               Padding(
                 padding: EdgeInsets.fromLTRB(00, getheight(context, 28), 00, 0),
                 child: Column(
@@ -97,7 +51,6 @@ class _AstroDrawerState extends State<AstroDrawer> {
                   ],
                 ),
               ),
-
               SizedBox(
                 height: getheight(context, 35),
               ),
