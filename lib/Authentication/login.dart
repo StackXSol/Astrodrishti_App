@@ -1,3 +1,4 @@
+import 'package:astrodrishti/Authentication/funcs.dart';
 import 'package:astrodrishti/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,9 @@ class LogIn extends StatefulWidget {
 
 class _LogInState extends State<LogIn> {
   bool _obscure = true;
+
+  TextEditingController username = TextEditingController();
+  String password = "";
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +85,7 @@ class _LogInState extends State<LogIn> {
                         height: getheight(context, 23),
                       ),
                       _LocalTExtField(
+                        controller: username,
                         title: "Username",
                         hint: "Email or Phone Number",
                       ),
@@ -113,6 +118,9 @@ class _LogInState extends State<LogIn> {
                                 children: [
                                   Expanded(
                                     child: TextField(
+                                      onChanged: (val) {
+                                        password = val;
+                                      },
                                       obscureText: _obscure,
                                       cursorColor: Colors.white,
                                       style:
@@ -147,7 +155,8 @@ class _LogInState extends State<LogIn> {
                       GestureDetector(
                         onTap: () {
                           /// checking login
-                          Navigator.pushNamed(context, '/navbar');
+                          // Navigator.pushNamed(context, '/navbar');
+                          login(username.text, password, context);
                         },
                         child: BlueButton(
                           title: "Log In",
@@ -208,9 +217,11 @@ class _LogInState extends State<LogIn> {
 }
 
 class _LocalTExtField extends StatelessWidget {
-  _LocalTExtField({required this.title, required this.hint});
+  _LocalTExtField(
+      {required this.title, required this.hint, required this.controller});
 
   String title, hint;
+  TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -240,6 +251,7 @@ class _LocalTExtField extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                    controller: controller,
                     cursorColor: Colors.white,
                     style: TextStyle(color: Color(0xffADADAD)),
                     decoration: InputDecoration(

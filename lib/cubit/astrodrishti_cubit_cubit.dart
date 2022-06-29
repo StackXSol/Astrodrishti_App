@@ -27,17 +27,17 @@ class AstrodrishtiCubitCubit extends Cubit<AstrodrishtiCubitState> {
     dynamic key =
         await FirebaseFirestore.instance.collection("Users").doc(uid).get();
 
-    userData cur = userData(
-        phone: key.data()["Phone"],
+    userData cur_user = userData(
+        phone: int.parse(key.data()["Phone"]),
         name: key.data()["Name"],
         dob: key.data()["DOB"],
         time: key.data()["TOB"],
         sign: "Virgo",
-        lat: key.data()["Lat"],
-        lon: key.data()["Lon"],
+        lat: double.parse(key.data()["Lat"].toString()),
+        lon: double.parse(key.data()["Lon"].toString()),
         place: key.data()["Place"],
         email: key.data()["Email"]);
 
-    emit(AstrodrishtiCubitInitial(currentUser: cur));
+    emit(AstrodrishtiCubitInitial(currentUser: cur_user));
   }
 }
