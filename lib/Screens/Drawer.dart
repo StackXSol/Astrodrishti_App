@@ -68,9 +68,19 @@ class _AstroDrawerState extends State<AstroDrawer> {
                           icon: Icons.account_circle_outlined,
                           title: "Profile"),
                     ),
-                    _drawerWidget(
-                        icon: Icons.notifications, title: "Notifications"),
-                    _drawerWidget(icon: Icons.inventory, title: "Orders"),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/notifications');
+                      },
+                      child: _drawerWidget(
+                          icon: Icons.notifications, title: "Notifications"),
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/orders');
+                        },
+                        child: _drawerWidget(
+                            icon: Icons.inventory, title: "Orders")),
                     _drawerWidget(icon: Icons.save, title: "Saved Kundlis"),
                     _drawerWidget(
                         icon: Icons.question_answer, title: "Ask Question?"),

@@ -32,10 +32,15 @@ class Profile extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(height: getheight(context, 18)),
-                          Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                            size: 30,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                              size: 30,
+                            ),
                           ),
                           SizedBox(
                             height: getheight(context, 35),
@@ -47,10 +52,6 @@ class Profile extends StatelessWidget {
                                 fontWeight: FontWeight.w600,
                                 fontSize: 30),
                           ),
-                          SizedBox(height: getheight(context, 24)),
-                          SizedBox(
-                            height: getheight(context, 22),
-                          )
                         ],
                       ),
                     ),
@@ -361,26 +362,10 @@ class Profile extends StatelessWidget {
                                   height: 10,
                                 ),
                                 GestureDetector(
-                                  onTap: () {
-                                    // submit bug
-                                  },
-                                  child: Container(
-                                    height: getheight(context, 50),
-                                    width: getwidth(context, 343),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      gradient: LinearGradient(
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                        colors: [
-                                          Color(0xff21D4FD).withOpacity(0.7),
-                                          Color(0xff6D80FE).withOpacity(0.217)
-                                        ],
-                                      ),
-                                    ),
-                                    child: Center(child: Text("Submit")),
-                                  ),
-                                ),
+                                    onTap: () {
+                                      // submit bug
+                                    },
+                                    child: BlueButton(title: "Submit")),
                               ],
                             ),
                           );

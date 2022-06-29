@@ -209,6 +209,176 @@ class _HomeScreenState extends State<HomeScreen> {
                               context: context,
                               builder: (BuildContext context) {
                                 return Container(
+                                  height: getheight(context, 400),
+                                  child: Column(
+                                    children: <Widget>[
+                                      SizedBox(
+                                        height: getheight(context, 10),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        child: Row(
+                                          children: [
+                                            Spacer(),
+                                            GestureDetector(
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: Container(
+                                                  height:
+                                                      getheight(context, 32),
+                                                  width: getheight(context, 32),
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              50),
+                                                      color: Color(0xFF010642)),
+                                                  child: Icon(
+                                                    Icons.cancel_outlined,
+                                                    color: Colors.white,
+                                                    size:
+                                                        getheight(context, 32),
+                                                  )),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Image(
+                                          height: getwidth(context, 100),
+                                          width: getwidth(context, 100),
+                                          image: AssetImage(
+                                              "assets/images/report.png")),
+                                      SizedBox(
+                                        height: getheight(context, 20),
+                                      ),
+                                      Text("Kundali Analysis"),
+                                      SizedBox(
+                                        height: getheight(context, 20),
+                                      ),
+                                      BlueButton(title: "Know More")
+                                    ],
+                                  ),
+                                );
+                              });
+                        },
+                        child: Container(
+                          height: getheight(context, 164),
+                          width: getwidth(context, 159),
+                          decoration: BoxDecoration(
+                              color: Color(0xff4036AD).withOpacity(0.32),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image(
+                                  width: getwidth(context, 90),
+                                  height: getwidth(context, 90),
+                                  image:
+                                      AssetImage("assets/images/report.png")),
+                              SizedBox(
+                                height: getheight(context, 10),
+                              ),
+                              Text("Kundali Analysis")
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          showModalBottomSheet(
+                              backgroundColor: Color(0xFF161A4D),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(24),
+                              ),
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
+                                  height: getheight(context, 400),
+                                  child: Column(
+                                    children: <Widget>[
+                                      SizedBox(
+                                        height: getheight(context, 10),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        child: Row(
+                                          children: [
+                                            Spacer(),
+                                            GestureDetector(
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: Container(
+                                                  height:
+                                                      getheight(context, 32),
+                                                  width: getheight(context, 32),
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              50),
+                                                      color: Color(0xFF010642)),
+                                                  child: Icon(
+                                                    Icons.cancel_outlined,
+                                                    color: Colors.white,
+                                                    size:
+                                                        getheight(context, 32),
+                                                  )),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Image(
+                                          height: getwidth(context, 100),
+                                          width: getwidth(context, 100),
+                                          image: AssetImage(
+                                              "assets/images/mangal.png")),
+                                      SizedBox(
+                                        height: getheight(context, 20),
+                                      ),
+                                      Text("Mangal Dosh"),
+                                      SizedBox(
+                                        height: getheight(context, 20),
+                                      ),
+                                      BlueButton(title: "Know More")
+                                    ],
+                                  ),
+                                );
+                              });
+                        },
+                        child: Container(
+                          height: getheight(context, 164),
+                          width: getwidth(context, 159),
+                          decoration: BoxDecoration(
+                              color: Color(0xff4036AD).withOpacity(0.32),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image(
+                                  width: getwidth(context, 80),
+                                  height: getwidth(context, 80),
+                                  image:
+                                      AssetImage("assets/images/mangal.png")),
+                              SizedBox(
+                                height: getheight(context, 15),
+                              ),
+                              Text("Mangal Dosh")
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          showModalBottomSheet(
+                              backgroundColor: Color(0xFF161A4D),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(24),
+                              ),
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
                                   height: getheight(context, 350),
                                   child: Column(
                                     children: <Widget>[
@@ -252,7 +422,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       SizedBox(
                                         height: getheight(context, 20),
                                       ),
-                                      Text("Kundali Analysis"),
+                                      Text("Kundali Report"),
                                       SizedBox(
                                         height: getheight(context, 20),
                                       ),
@@ -279,69 +449,93 @@ class _HomeScreenState extends State<HomeScreen> {
                               SizedBox(
                                 height: getheight(context, 10),
                               ),
-                              Text("Kundali Analysis")
+                              Text("Kundali Report")
                             ],
                           ),
                         ),
                       ),
-                      Container(
-                        height: getheight(context, 164),
-                        width: getwidth(context, 159),
-                        decoration: BoxDecoration(
-                            color: Color(0xff4036AD).withOpacity(0.32),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image(
-                                width: getwidth(context, 80),
-                                height: getwidth(context, 80),
-                                image: AssetImage("assets/images/mangal.png")),
-                            SizedBox(
-                              height: getheight(context, 15),
-                            ),
-                            Text("Mangal Dosh")
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: getheight(context, 164),
-                        width: getwidth(context, 159),
-                        decoration: BoxDecoration(
-                            color: Color(0xff4036AD).withOpacity(0.32),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image(
-                                width: getwidth(context, 80),
-                                height: getwidth(context, 80),
-                                image: AssetImage("assets/images/report.jpg")),
-                            SizedBox(
-                              height: getheight(context, 15),
-                            ),
-                            Text("Kundali Report")
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: getheight(context, 164),
-                        width: getwidth(context, 159),
-                        decoration: BoxDecoration(
-                            color: Color(0xff4036AD).withOpacity(0.32),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image(
-                                width: getwidth(context, 80),
-                                height: getwidth(context, 80),
-                                image: AssetImage("assets/images/pitra.png")),
-                            SizedBox(
-                              height: getheight(context, 15),
-                            ),
-                            Text("Pitra Dosh")
-                          ],
+                      GestureDetector(
+                        onTap: () {
+                          showModalBottomSheet(
+                              backgroundColor: Color(0xFF161A4D),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(24),
+                              ),
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
+                                  height: getheight(context, 350),
+                                  child: Column(
+                                    children: <Widget>[
+                                      SizedBox(
+                                        height: getheight(context, 10),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        child: Row(
+                                          children: [
+                                            Spacer(),
+                                            GestureDetector(
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: Container(
+                                                  height:
+                                                      getheight(context, 32),
+                                                  width: getheight(context, 32),
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              50),
+                                                      color: Color(0xFF010642)),
+                                                  child: Icon(
+                                                    Icons.cancel_outlined,
+                                                    color: Colors.white,
+                                                    size:
+                                                        getheight(context, 32),
+                                                  )),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Image(
+                                          height: getwidth(context, 100),
+                                          width: getwidth(context, 100),
+                                          image: AssetImage(
+                                              "assets/images/pitra.png")),
+                                      SizedBox(
+                                        height: getheight(context, 20),
+                                      ),
+                                      Text("Pitra Dosh"),
+                                      SizedBox(
+                                        height: getheight(context, 20),
+                                      ),
+                                      BlueButton(title: "Know More")
+                                    ],
+                                  ),
+                                );
+                              });
+                        },
+                        child: Container(
+                          height: getheight(context, 164),
+                          width: getwidth(context, 159),
+                          decoration: BoxDecoration(
+                              color: Color(0xff4036AD).withOpacity(0.32),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image(
+                                  width: getwidth(context, 80),
+                                  height: getwidth(context, 80),
+                                  image: AssetImage("assets/images/pitra.png")),
+                              SizedBox(
+                                height: getheight(context, 15),
+                              ),
+                              Text("Pitra Dosh")
+                            ],
+                          ),
                         ),
                       ),
                     ],

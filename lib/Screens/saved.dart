@@ -10,79 +10,78 @@ class Saved extends StatelessWidget {
       child: Scaffold(
         backgroundColor: bgColor,
         body: Container(
-            child: Stack(children: [
-          Column(
-            children: [
-              Positioned(
-                  top: getheight(context, 375),
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child: Container(
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [Color(0xFF0b1339), Color(0xFF232a78)],
-                          ),
-                          borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(16),
-                              bottomLeft: Radius.circular(16))),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 16),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(height: getheight(context, 88)),
-                                Icon(
-                                  Icons.arrow_back,
-                                  color: Colors.white,
-                                  size: 30,
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  "Saved",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 30),
-                                ),
-                                SizedBox(height: getheight(context, 24)),
-                                Text(
-                                  "Kundali Analysis saved",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.white),
-                                ),
-                                SizedBox(
-                                  height: getheight(context, 22),
-                                )
-                              ],
+            child: Column(
+          children: [
+            ClipRect(
+              child: Container(
+                  height: getheight(context, 150),
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [Color(0xFF0b1339), Color(0xFF232a78)],
+                      ),
+                      borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(16),
+                          bottomLeft: Radius.circular(16))),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: getheight(context, 12)),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
+                                size: 30,
+                              ),
                             ),
-                          ),
+                            SizedBox(
+                              height: 40,
+                            ),
+                            Text(
+                              "Saved",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 30),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: getwidth(context, 60),
+                      ),
+                      Column(
+                        children: [
                           SizedBox(
-                            width: getwidth(context, 22),
+                            height: 20,
                           ),
                           Image(
                             image: AssetImage("assets/images/Groupwheel.png"),
                             height: getheight(context, 230),
                             width: getwidth(context, 230),
-                          )
+                          ),
                         ],
-                      ))),
-              SizedBox(
-                height: getheight(context, 24),
-              ),
-              Order(),
-              Order(),
-              Order(),
-            ],
-          ),
-        ])),
+                      )
+                    ],
+                  )),
+            ),
+            SizedBox(
+              height: getheight(context, 24),
+            ),
+            Order(),
+            Order(),
+            Order(),
+          ],
+        )),
       ),
     );
   }
