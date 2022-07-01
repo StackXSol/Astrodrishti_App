@@ -54,7 +54,7 @@ Future<void> login(String username, password, context) async {
     await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: username, password: password);
     BlocProvider.of<AstrodrishtiCubitCubit>(context)
-        .getUserData(FirebaseAuth.instance.currentUser!.uid);
+        .getUserData(FirebaseAuth.instance.currentUser!.uid, context);
     Navigator.pushReplacementNamed(context, "/navbar");
   } else if (username.length == 10) {
     try {
@@ -65,8 +65,27 @@ Future<void> login(String username, password, context) async {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: key.docs.first.data()["Email"], password: password);
       BlocProvider.of<AstrodrishtiCubitCubit>(context)
-          .getUserData(FirebaseAuth.instance.currentUser!.uid);
+          .getUserData(FirebaseAuth.instance.currentUser!.uid, context);
       Navigator.pushReplacementNamed(context, "/navbar");
     } catch (e) {}
   }
+}
+
+Future<void> verify(phone, context) async {
+  await FirebaseAuth.instance.verifyPhoneNumber(
+    phoneNumber: '+91$phone',
+    verificationCompleted: (PhoneAuthCredential credential) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => OtpAuth(
+            otp: int.parse(credential.smsCode!),
+          ),
+        ),
+      );
+    },
+    verificationFailed: (FirebaseAuthException e) {},
+    codeSent: (String verificationId, int? resendToken) {},
+    codeAutoRetrievalTimeout: (String verificationId) {},
+  );
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:astrodrishti/widgets.dart';
 
-class Saved extends StatelessWidget {
-  const Saved({Key? key}) : super(key: key);
+class savedKundlis extends StatelessWidget {
+  const savedKundlis({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

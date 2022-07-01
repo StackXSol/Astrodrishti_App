@@ -1,7 +1,12 @@
+import 'package:astrodrishti/Authentication/login.dart';
+import 'package:astrodrishti/Screens/saved.dart';
+import 'package:astrodrishti/cubit/astrodrishti_cubit_cubit.dart';
 import 'package:astrodrishti/widgets.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'profile.dart';
 
@@ -86,12 +91,31 @@ class _AstroDrawerState extends State<AstroDrawer> {
                           },
                           child: _drawerWidget(
                               icon: Icons.inventory, title: "Orders")),
-                      _drawerWidget(icon: Icons.save, title: "Saved Kundlis"),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => savedKundlis()));
+                          },
+                          child: _drawerWidget(
+                              icon: Icons.save, title: "Saved Kundlis")),
                       _drawerWidget(
                           icon: Icons.question_answer, title: "Ask Question?"),
                       _drawerWidget(icon: Icons.share, title: "Share"),
                       _drawerWidget(icon: Icons.report, title: "Report Issue"),
-                      _drawerWidget(icon: Icons.logout, title: "Log Out"),
+                      GestureDetector(
+                          onTap: () {
+                            FirebaseAuth.instance.signOut();
+                            BlocProvider.of<AstrodrishtiCubitCubit>(context)
+                                .reset();
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LogIn()));
+                          },
+                          child: _drawerWidget(
+                              icon: Icons.logout, title: "Log Out")),
                     ],
                   ),
                 )

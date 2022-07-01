@@ -27,7 +27,7 @@ class _SignUpState extends State<SignUp> {
             Column(
               children: [
                 SizedBox(
-                  height: getheight(context, 86),
+                  height: getheight(context, 26),
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,7 +55,7 @@ class _SignUpState extends State<SignUp> {
               ],
             ),
             Positioned(
-              top: getheight(context, 220),
+              top: getheight(context, 190),
               bottom: 0,
               left: 0,
               right: 0,

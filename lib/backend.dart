@@ -42,3 +42,10 @@ class userData {
     return phone;
   }
 }
+
+class Wallet {
+  int balance = 0;
+  var transactions = {};
+
+  Wallet({required this.balance, required this.transactions});
+}

@@ -26,7 +26,7 @@ class _LogInState extends State<LogIn> {
             Column(
               children: [
                 SizedBox(
-                  height: getheight(context, 86),
+                  height: getheight(context, 26),
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +54,7 @@ class _LogInState extends State<LogIn> {
               ],
             ),
             Positioned(
-              top: getheight(context, 342),
+              top: getheight(context, 302),
               bottom: 0,
               left: 0,
               right: 0,

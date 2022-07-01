@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(bodyText2: TextStyle(color: Colors.white)),
       ),
       routes: {
-        '/loading': (context) => start_page(),
+        '/': (context) => start_page(),
         '/login': (context) => const LogIn(),
         '/signup': (context) => const SignUp(),
         '/navbar': (context) => BottomBar(),
@@ -50,11 +50,10 @@ class MyApp extends StatelessWidget {
         '/orders': (context) => OrderHistory(),
         '/notifications': (context) => Notifications(),
         '/profile': (context) => Profile(),
-        '/saved': (context) => Saved(),
+        '/saved': (context) => savedKundlis(),
         '/analysis': (context) => Analysis(),
-        '/navbar': (context) => BottomBar(),
       },
-      initialRoute: '/navbar',
+      initialRoute: '/',
     );
   }
 }

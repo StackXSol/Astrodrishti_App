@@ -1,9 +1,8 @@
 part of 'astrodrishti_cubit_cubit.dart';
 
-@immutable
-abstract class AstrodrishtiCubitState {}
-
-class AstrodrishtiCubitInitial extends AstrodrishtiCubitState {
-  AstrodrishtiCubitInitial({required this.currentUser});
+class AstrodrishtiCubitState {
+  AstrodrishtiCubitState(
+      {required this.currentUser, required this.currentUserWallet});
   userData currentUser;
+  Wallet currentUserWallet;
 }

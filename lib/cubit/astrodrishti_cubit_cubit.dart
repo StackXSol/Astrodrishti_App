@@ -2,6 +2,7 @@ import 'package:astrodrishti/backend.dart';
 import 'package:astrodrishti/main.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
 part 'astrodrishti_cubit_state.dart';
@@ -9,21 +10,21 @@ part 'astrodrishti_cubit_state.dart';
 class AstrodrishtiCubitCubit extends Cubit<AstrodrishtiCubitState> {
   AstrodrishtiCubitCubit()
       : super(
-          AstrodrishtiCubitInitial(
-            currentUser: userData(
-                phone: 0,
-                name: "",
-                dob: "",
-                lat: 0.0,
-                lon: 0.0,
-                time: "",
-                sign: "",
-                place: "",
-                email: ""),
-          ),
+          AstrodrishtiCubitState(
+              currentUser: userData(
+                  phone: 0,
+                  name: "",
+                  dob: "",
+                  lat: 0.0,
+                  lon: 0.0,
+                  time: "",
+                  sign: "",
+                  place: "",
+                  email: ""),
+              currentUserWallet: Wallet(balance: 0, transactions: {})),
         );
 
-  Future<void> getUserData(uid) async {
+  Future<void> getUserData(uid, context) async {
     dynamic key =
         await FirebaseFirestore.instance.collection("Users").doc(uid).get();
 
@@ -38,6 +39,41 @@ class AstrodrishtiCubitCubit extends Cubit<AstrodrishtiCubitState> {
         place: key.data()["Place"],
         email: key.data()["Email"]);
 
-    emit(AstrodrishtiCubitInitial(currentUser: cur_user));
+    emit(AstrodrishtiCubitState(
+        currentUser: cur_user,
+        currentUserWallet: BlocProvider.of<AstrodrishtiCubitCubit>(context)
+            .state
+            .currentUserWallet));
+  }
+
+  getUserWallet(uid, context) async {
+    dynamic key =
+        await FirebaseFirestore.instance.collection("Users").doc(uid).get();
+
+    Wallet _wallet = Wallet(
+        balance: key.data()["Wallet"]["Balance"],
+        transactions: key.data()["Wallet"]["Transactions"]);
+
+    emit(AstrodrishtiCubitState(
+        currentUser:
+            BlocProvider.of<AstrodrishtiCubitCubit>(context).state.currentUser,
+        currentUserWallet: _wallet));
+  }
+
+  Future<void> reset() async {
+    userData cur_user = userData(
+        phone: 0,
+        name: "",
+        dob: "",
+        time: "",
+        sign: "",
+        lat: 0.0,
+        lon: 0.0,
+        place: "",
+        email: "");
+
+    emit(AstrodrishtiCubitState(
+        currentUser: cur_user,
+        currentUserWallet: Wallet(balance: 0, transactions: {})));
   }
 }
