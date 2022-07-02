@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
+import '../apiCalling.dart';
 import '../cubit/astrodrishti_cubit_cubit.dart';
+import '../main.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     dob = DateFormat.yMMMd().format(DateTime.parse(
         "${BlocProvider.of<AstrodrishtiCubitCubit>(context).state.currentUser.dob.substring(6, 10)}-${BlocProvider.of<AstrodrishtiCubitCubit>(context).state.currentUser.dob.substring(3, 5)}-${BlocProvider.of<AstrodrishtiCubitCubit>(context).state.currentUser.dob.substring(0, 2)}"));
+
     super.initState();
     setState(() {});
   }
@@ -91,22 +94,25 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.only(
                           left: getwidth(context, 16),
                           bottom: getheight(context, 28)),
-                      child: Text(
-                        // "♓︎ Pices, 19 Feb 1999",
-
-                        // BlocProvider.of<AstrodrishtiCubitCubit>(context)
-                        //     .state
-                        //     .currentUser
-                        //     .dob,
-
-                        dob,
-
-                        //0,2  3,5 6,10
-                        style: TextStyle(
-                            foreground: Paint()..shader = blue_text_grad,
-                            // color: Color(0xff6D80FE),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14),
+                      child: Row(
+                        children: [
+                          Image(
+                              height: getheight(context, 30),
+                              width: getheight(context, 30),
+                              image: AssetImage(
+                                  "assets/signs/${BlocProvider.of<AstrodrishtiCubitCubit>(context).state.currentUser.sign}.png")),
+                          SizedBox(
+                            width: getwidth(context, 10),
+                          ),
+                          Text(
+                            dob,
+                            style: TextStyle(
+                                foreground: Paint()..shader = blue_text_grad,
+                                // color: Color(0xff6D80FE),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14),
+                          ),
+                        ],
                       ),
                     ),
                     Row(

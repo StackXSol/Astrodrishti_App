@@ -3,6 +3,7 @@ import 'package:astrodrishti/Authentication/login.dart';
 import 'package:astrodrishti/cubit/astrodrishti_cubit_cubit.dart';
 import 'package:astrodrishti/widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -12,6 +13,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+import 'apiCalling.dart';
+import 'main.dart';
 
 class start_page extends StatefulWidget {
   @override
@@ -21,20 +26,19 @@ class start_page extends StatefulWidget {
 class _start_pageState extends State<start_page> {
   @override
   void initState() {
-    // checknet();
-    // set_screen();
+    checknet();
     super.initState();
   }
 
-  // void checknet() async {
-  //   var connectivityResult = await (Connectivity().checkConnectivity());
-  //   if (connectivityResult == ConnectivityResult.mobile ||
-  //       connectivityResult == ConnectivityResult.wifi) {
-  //     login();
-  //   } else {
-  //     Fluttertoast.showToast(msg: "Check your Internet Connection!");
-  //   }
-  // }
+  void checknet() async {
+    var connectivityResult = await Connectivity().checkConnectivity();
+    if (connectivityResult == ConnectivityResult.mobile ||
+        connectivityResult == ConnectivityResult.wifi) {
+      set_screen();
+    } else {
+      Fluttertoast.showToast(msg: "Check your Internet Connection!");
+    }
+  }
 
   Future<void> set_screen() async {
     try {

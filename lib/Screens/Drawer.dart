@@ -1,5 +1,6 @@
 import 'package:astrodrishti/Authentication/login.dart';
 import 'package:astrodrishti/Screens/saved.dart';
+import 'package:astrodrishti/apiCalling.dart';
 import 'package:astrodrishti/cubit/astrodrishti_cubit_cubit.dart';
 import 'package:astrodrishti/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -102,7 +103,10 @@ class _AstroDrawerState extends State<AstroDrawer> {
                               icon: Icons.save, title: "Saved Kundlis")),
                       _drawerWidget(
                           icon: Icons.question_answer, title: "Ask Question?"),
-                      _drawerWidget(icon: Icons.share, title: "Share"),
+                      GestureDetector(
+                          onTap: () {},
+                          child:
+                              _drawerWidget(icon: Icons.share, title: "Share")),
                       _drawerWidget(icon: Icons.report, title: "Report Issue"),
                       GestureDetector(
                           onTap: () {

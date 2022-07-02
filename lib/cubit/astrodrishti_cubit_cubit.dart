@@ -1,3 +1,4 @@
+import 'package:astrodrishti/apiCalling.dart';
 import 'package:astrodrishti/backend.dart';
 import 'package:astrodrishti/main.dart';
 import 'package:bloc/bloc.dart';
@@ -33,7 +34,7 @@ class AstrodrishtiCubitCubit extends Cubit<AstrodrishtiCubitState> {
         name: key.data()["Name"],
         dob: key.data()["DOB"],
         time: key.data()["TOB"],
-        sign: "Virgo",
+        sign: key.data()["Zodiac"],
         lat: double.parse(key.data()["Lat"].toString()),
         lon: double.parse(key.data()["Lon"].toString()),
         place: key.data()["Place"],

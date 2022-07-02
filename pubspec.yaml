@@ -36,13 +36,15 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_bloc: ^8.0.1
   otp_text_field: ^1.1.2
-  flutter_statusbarcolor: ^0.2.3
-  kf_drawer: ^1.2.1
+  flutter_statusbarcolor: ^0.2.3  
   firebase_auth: ^3.3.20
   firebase_core: ^1.18.0
   cloud_firestore: ^3.1.18
   flutter_spinkit: ^5.1.0
+  connectivity_plus: ^2.3.5
   intl: ^0.17.0
+  fluttertoast: ^8.0.9
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +71,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/signs/
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

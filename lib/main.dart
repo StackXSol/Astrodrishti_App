@@ -6,6 +6,7 @@ import 'package:astrodrishti/Screens/analysis.dart';
 import 'package:astrodrishti/Screens/notifications.dart';
 import 'package:astrodrishti/Screens/order_history.dart';
 import 'package:astrodrishti/Screens/profile.dart';
+import 'package:astrodrishti/apiCalling.dart';
 import 'package:astrodrishti/backend.dart';
 import 'package:astrodrishti/cubit/astrodrishti_cubit_cubit.dart';
 import 'package:astrodrishti/loadingScreen.dart';
@@ -18,6 +19,8 @@ import 'MainScreens/BottomNavBar.dart';
 import 'Screens/saved.dart';
 
 //global essentials
+
+String key = "9f51deff-8bbd-55e5-b027-1e9dcad48df7";
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

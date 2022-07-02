@@ -36,7 +36,7 @@ Future<void> sign_up(email, password, phone, context) async {
   );
 }
 
-Future<void> pushData(name, dob, tob, place, lat, lon) async {
+Future<void> pushData(name, dob, tob, place, lat, lon, tmz, sign) async {
   String uid = await FirebaseAuth.instance.currentUser!.uid;
   FirebaseFirestore.instance.collection("Users").doc(uid).set({
     "Name": name,
@@ -45,6 +45,8 @@ Future<void> pushData(name, dob, tob, place, lat, lon) async {
     "Place": place,
     "Lat": lat,
     "Lon": lon,
+    "Tmz": tmz,
+    "Zodiac": sign,
     "Data": true,
   }, SetOptions(merge: true));
 }
@@ -55,6 +57,8 @@ Future<void> login(String username, password, context) async {
         .signInWithEmailAndPassword(email: username, password: password);
     BlocProvider.of<AstrodrishtiCubitCubit>(context)
         .getUserData(FirebaseAuth.instance.currentUser!.uid, context);
+    BlocProvider.of<AstrodrishtiCubitCubit>(context)
+        .getUserWallet(FirebaseAuth.instance.currentUser!.uid, context);
     Navigator.pushReplacementNamed(context, "/navbar");
   } else if (username.length == 10) {
     try {
@@ -66,6 +70,8 @@ Future<void> login(String username, password, context) async {
           email: key.docs.first.data()["Email"], password: password);
       BlocProvider.of<AstrodrishtiCubitCubit>(context)
           .getUserData(FirebaseAuth.instance.currentUser!.uid, context);
+      BlocProvider.of<AstrodrishtiCubitCubit>(context)
+          .getUserWallet(FirebaseAuth.instance.currentUser!.uid, context);
       Navigator.pushReplacementNamed(context, "/navbar");
     } catch (e) {}
   }

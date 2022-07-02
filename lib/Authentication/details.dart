@@ -1,8 +1,15 @@
+import 'dart:convert';
+
 import 'package:astrodrishti/Authentication/funcs.dart';
 import 'package:astrodrishti/MainScreens/BottomNavBar.dart';
+import 'package:astrodrishti/apiCalling.dart';
+import 'package:astrodrishti/cubit/astrodrishti_cubit_cubit.dart';
 import 'package:astrodrishti/widgets.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart' as http;
 
 class Details extends StatefulWidget {
   const Details({Key? key}) : super(key: key);
@@ -15,7 +22,65 @@ class _DetailsState extends State<Details> {
   TextEditingController _datecontroller = TextEditingController();
   TextEditingController _timecontroller = TextEditingController();
   TextEditingController _namecontroller = TextEditingController();
-  TextEditingController _placecontroller = TextEditingController();
+
+  double _lat = 0.0;
+  double _lon = 0.0;
+  String _tmz = "";
+
+  String _birthplace = "Select Birth Place";
+
+  fetchLocation() async {
+    try {
+      var _coordinates = await picloc(context);
+      _lat = double.parse(_coordinates[0]);
+      _lon = double.parse(_coordinates[1]);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<void> setBirthPlace() async {
+    http.Response res = await http.get(
+      Uri.parse(
+          "https://us1.locationiq.com/v1/reverse.php?key=4b811c0bc86e19&lat=$_lat&lon=$_lon&format=json"),
+    );
+
+    http.Response ress = await http.get(
+      Uri.parse(
+          "http://api.timezonedb.com/v2.1/get-time-zone?key=0MX7YDAS3D26&format=json&by=position&lat=$_lat&lng=$_lon"),
+    );
+    setState(() {
+      if (jsonDecode(res.body)["address"]["city"] == null) {
+        if (jsonDecode(res.body)["address"]["village"] == null) {
+          _birthplace = jsonDecode(res.body)["address"]["town"].toString() +
+              ", " +
+              jsonDecode(res.body)["address"]["state"].toString() +
+              ", " +
+              jsonDecode(res.body)["address"]["country"].toString();
+        } else {
+          _birthplace = jsonDecode(res.body)["address"]["village"].toString() +
+              ", " +
+              jsonDecode(res.body)["address"]["state"].toString() +
+              ", " +
+              jsonDecode(res.body)["address"]["country"].toString();
+        }
+      } else {
+        if (jsonDecode(res.body)["address"]["state"] == null) {
+          _birthplace = jsonDecode(res.body)["address"]["city"].toString() +
+              ", " +
+              jsonDecode(res.body)["address"]["country"].toString();
+        } else {
+          _birthplace = jsonDecode(res.body)["address"]["city"].toString() +
+              ", " +
+              jsonDecode(res.body)["address"]["state"].toString() +
+              ", " +
+              jsonDecode(res.body)["address"]["country"].toString();
+        }
+      }
+      _birthplace = _birthplace.replaceAll("null", "");
+      _tmz = (json.decode(ress.body)['gmtOffset'].toInt() / 3600).toString();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +92,7 @@ class _DetailsState extends State<Details> {
             Column(
               children: [
                 SizedBox(
-                  height: getheight(context, 86),
+                  height: getheight(context, 32),
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,7 +120,7 @@ class _DetailsState extends State<Details> {
               ],
             ),
             Positioned(
-              top: getheight(context, 224),
+              top: getheight(context, 190),
               bottom: 0,
               left: 0,
               right: 0,
@@ -226,23 +291,75 @@ class _DetailsState extends State<Details> {
                           ],
                         ),
                       ),
-                      _LocalTExtField(
-                        title: "Birth Place",
-                        controller: _placecontroller,
-                        hint: "Enter your birth place",
+                      GestureDetector(
+                        onTap: () async {
+                          await fetchLocation();
+                          _lat != 0.0 ? setBirthPlace() : null;
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: getwidth(context, 15),
+                              bottom: getheight(context, 24)),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Birth Place",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                height: getheight(context, 54),
+                                width: getwidth(context, 343),
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    border: Border.all(color: Colors.white),
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        _birthplace,
+                                        style:
+                                            TextStyle(color: Color(0xffADADAD)),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                       SizedBox(
                         height: getheight(context, 20),
                       ),
                       GestureDetector(
-                        onTap: () {
-                          pushData(
+                        onTap: () async {
+                          await pushData(
                               _namecontroller.text,
                               _datecontroller.text,
                               _timecontroller.text,
-                              _placecontroller.text,
-                              31,
-                              78);
+                              _birthplace,
+                              _lat,
+                              _lon,
+                              _tmz,
+                              await getSign(context, _datecontroller.text,
+                                  _timecontroller.text, _lat, _lon, _tmz));
+                          BlocProvider.of<AstrodrishtiCubitCubit>(context)
+                              .getUserData(
+                                  FirebaseAuth.instance.currentUser!.uid,
+                                  context);
+                          BlocProvider.of<AstrodrishtiCubitCubit>(context)
+                              .getUserWallet(
+                                  FirebaseAuth.instance.currentUser!.uid,
+                                  context);
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
